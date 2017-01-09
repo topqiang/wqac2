@@ -1,0 +1,89 @@
+<extend name="Public/base" />
+
+<block name="main">
+
+    <div class="row-fluid">
+
+        <div class="span12">
+            <div class="widget-box clearfix gallery-list">
+                <div class="widget-title widget-title-search">
+                    <a href="#myModal" role="button" class="btn btn-success" id="add_gallery" data-toggle="modal">新增</a>&nbsp;
+                </div>
+                <!-- Modal -->
+                <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <form action="{:U('Merchant/addSurfaceImg')}" method="post">
+                        <input type="hidden" name="merchant_id" value="{$_GET['merchant_id']}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">继续上传</h3>
+                    </div>
+                    <div class="modal-body">
+                        {:hook('upload',array('queue_limit'=>100,'is_first'=>1,'unique_sign'=>'surface_pic','field_name'=>'surface_pic','save_path'=>'Merchant'))}
+                        <span class="help-block">图片尽量控制在100K-300K，尺寸：600*240</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                    </form>
+                </div>
+                <volist name="surface_list" id="vo">
+                    <div class="gallery" id="gallery_{$vo['id']}">
+                        <img src="__ROOT__{$vo['path']}" class="img-polaroid">
+                        <i class="icon-remove" onclick="removeImg({$vo['id']})"></i>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script>
+        $(function(){
+            $('button.move').click(function(){
+                if($(this).next('span').css('display') == 'none') {
+                    $(this).next('span').show();
+                } else {
+                    $(this).next('span').hide();
+                }
+            })
+        })
+
+        function removeImg(id){
+            var merchant_id = {$_GET['merchant_id']};
+            if(confirm('确定要删除吗？')){
+                $.ajax({
+                    url:"{:U('Merchant/delSurfaceImg')}",
+                    type:'POST',
+                    data:{id:id,merchant_id:merchant_id},
+                    success:function(data){
+                        if(data.status = 1){
+                            ($('#gallery_'+id)).remove();
+                            updateAlert(data.info,'alert-success');
+                        }else{
+                            updateAlert(data.info,'alert-error');
+                        }
+                        setTimeout(function() {
+                            $('.alert').hide();
+                        }, 1500);
+                    }
+                });
+            }
+        }
+
+        //表单提交
+        $('form').submit(function(){
+            var _this = $(this);
+            $.post(_this.attr('action'), _this.serialize(), success, 'json');
+            return false;
+            function success(data){
+                if(data.status = 1){
+                    window.location.reload();
+                }else{
+                    alert(data.info);
+                }
+            }
+        });
+
+    </script>
+</block>

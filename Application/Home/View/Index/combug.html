@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<include file="Common:header"/>
+<include file="Common:left"/>
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content" style="">
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+ <div class="box-cen padding-b-20">
+ 	<img src="__PUBLIC__/Home/img/logo1.png" class="disb macen"/>
+ </div>
+<div class="container-default ovhid" style="min-height: 400px;">
+	<div class="ovhid bgfff padding-20 fl" style="max-width: 20%;border: 1px solid #e5e5e5;border-radius: 4px;">
+		<include file="Public:left"/>
+	</div>
+	<div class="ovhid bgfff padding-20 fr" style="width: 80%;margin-bottom: 20px;margin-right:20px;border: 1px solid #e5e5e5;border-radius: 4px;">
+		<div class="btn btn-danger fr combtn">提交BUG</div>
+		<div class="margin-b-20 playque">
+			<div class="btn btn-default">未完成</div>
+			<div class="btn btn-primary">已完成</div>
+		</div>
+		<table class="table table-hover color4-bg quesition">
+			<thead>
+				<tr>
+					<th><i class="fa fa-check-square-o margin-r-10" title="全选"></i><i class="fa fa-check-square" title="反选"></i></th>
+					<th>描述</th>
+					<th>
+						<select class="selectpicker">
+							<option value="1">BUG</option>
+							<option value="2">优化</option>
+							<option value="3">新增</option>
+						</select>
+					</th>
+					<th>反馈人</th>
+					<th>反馈时间</th>
+					<th>反馈次数</th>
+					<th>
+						<select class="selectpicker">
+							<option value="1">全部</option>
+							<option value="2">待处理</option>
+							<option value="2">待测试</option>
+							<option value="3">未完成</option>
+							<option value="3">已完成</option>
+						</select>
+					</th>
+					<th>完成时间</th>
+					<th>备注</th>
+				</tr>
+			</thead>
+			<tr>
+				<td class="color1"><i class="fa fa-circle-o"></i></td>
+				<td class="color9">手机点击购买，闪退</td>
+				<td>优化</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td class="color9"><span class="procs">待测试</span></td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td class="color1"><i class="fa fa-circle-o"></i></td>
+				<td class="color9">手机点击购买，闪退手机点击购买，闪退</td>
+				<td>bug</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td class="color10"><span class="prowc">已完成</span>/<span class="color7 prowwc">未完成</span></td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td class="color1"><i class="fa fa-check-circle"></i></td>
+				<td class="color9">手机点击购买，闪退</td>
+				<td>优化</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td class="color9"><span class="procl">待处理</span></td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td class="color1"><i class="fa fa-check-circle"></i></td>
+				<td class="color9">手机点击购买，闪退</td>
+				<td>增加</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td class="color9">待处理</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td class="color1"><i class="fa fa-check-circle"></i></td>
+				<td class="color9">手机点击购买，闪退手机点击购买，闪退</td>
+				<td>优化</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td class="color9">待测试</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<!-- Start Footer -->
+ <include file="Common:footer"/>
+<!-- End Footer -->
+
+	<div class="form addques dis-n">
+		<div class="title text-center f-size-20 ih50">新建bug</div>
+		<div class="padding-20">
+			<div class="form-group">
+				<label>类型</label>
+				<select class="form-control selectpicker">
+					<option value="1">BUG</option>
+					<option value="2">优化</option>
+					<option value="3">新增</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>描述</label>
+				<textarea class="form-control"></textarea>
+			</div>
+			<div class="btn">提交</div>
+		</div>
+	</div>
+</div>
+
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="__PUBLIC__/Home/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/layer/layer.js"></script>
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/plugins.js"></script>
+
+<!-- ================================================
+Bootstrap Select
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/bootstrap-select/bootstrap-select.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/self.js"></script>
+<script type="text/javascript">
+	$(".combtn").on('click',function(){
+		layer.open({
+			type:1,
+			title:false,
+			area:['600px','auto'],
+			content:$(".addques")
+		});
+	});
+	$(".fa-check-square-o").on('click',function(){
+		$(".fa-circle-o").removeClass("fa-circle-o").addClass("fa-check-circle");
+	});
+	$(".fa-check-square").on('click',function(){
+		var one=$(".fa-circle-o");
+		var two=$(".fa-check-circle");
+		one.removeClass("fa-circle-o").addClass("fa-check-circle");
+		two.removeClass("fa-check-circle").addClass("fa-circle-o");
+	});
+	$("tr td:first-child i.fa").on('click',function(){
+		if($(this).hasClass('fa-circle-o')){
+			$(this).removeClass("fa-circle-o").addClass("fa-check-circle");
+		}else{
+			$(this).removeClass("fa-check-circle").addClass("fa-circle-o");
+		}
+	});
+	$(".proce").on("click",function(){
+		$(this).removeClass("proce").addClass();
+	});
+</script>
+</body>
+</html>

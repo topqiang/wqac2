@@ -1,0 +1,134 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/ajax-operate.js"></script>
+<!--主页面-->
+<div id="main-content">
+    <!-- 当前位置 start-->
+    <div id="now-address">
+        <span>当前位置：首页&gt;&gt;系统设置&gt;&gt;广告设置</span>
+    </div>
+    <!-- 当前位置 end-->
+    <div class="content-box">
+
+        <include file="Public:notification"/>
+
+        <!--头部切换 start-->
+        <div class="content-box-header">
+            <h3>广告设置</h3>
+            <ul class="content-box-tabs">
+                <li><a href="{:U('Advert/advertList')}" class="default-tab">广告列表</a></li>
+                <li><a href="{:U('Advert/addAdvert')}">添加广告</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <!--头部切换 end-->
+        <div class="search-content">
+            <form action="{:U('Advert/advertList')}" method="post" class="search-form">
+                <input class="text-input small-input search-input" type="text" name="ad_desc" value="{$request['ad_desc']}" placeholder="请输入广告描述"/>　
+                <select name="ad_position">
+                    <option value="">--广告位置--</option>
+                    <volist name="ad_position" id="position">
+                        <option value="{$key}" <if condition="$request['ad_position'] eq $key">selected=true</if>>{$position}</option>
+                    </volist>
+                </select>　
+                <select name="m_sex">
+                    <option value="">--所属板块--</option>
+                    <!--<option value="1" <if condition="$request['m_sex'] eq 1">selected=true</if>>男</option>
+                    <option value="2" <if condition="$request['m_sex'] eq 2">selected=true</if>>女</option>-->
+                </select>　
+                <input type="submit" class="button search-btn" value="查询">　　
+            </form>
+        </div>
+        <!--表格内容-->
+        <div class="content-box-content">
+            <!--内容表格 start-->
+            <div class="tab-content default-tab" id="tab1">
+                <form action="{:U('Advert/deleteAdBatch')}" method="post" class="batch-form">
+                <table border="1">
+                    <!--标题 start-->
+                    <thead>
+                    <tr>
+                        <th width="4%">
+                            <input class="check-all" type="checkbox" />
+                        </th>
+                        <th width="8%">添加时间</th>
+                        <th width="25%">广告描述</th>
+                        <th>广告链接</th>
+                        <th>广告位置</th>
+                        <th>所属板块</th>
+                        <th>排序</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                    </thead>
+                    <!--标题 end-->
+
+                    <!--内容 start-->
+                    <tbody class="tbody">
+                    <if condition="empty($ad_list)">
+                        <tr><td colspan="10"><span style="font-size:14px;">暂无数据</span></td></tr>
+                    </if>
+                    <volist name="ad_list" id="ad">
+                        <tr>
+                            <td><input type="checkbox" name="ad_id[]" value="{$ad['ad_id']}"/></td>
+                            <td style="vertical-align:middle">{$ad['ctime']|date='Y-m-d',###}</td>
+                            <td style="vertical-align:middle">
+                                <a href="" class="underline">{$ad['ad_desc']}</a>
+                                <if condition="!empty($ad['ad_pic'])">
+                                <div class='img-position' style="display:none;">
+                                    <img src="__WEBPUBLIC__/Admin/images/icons/point.png" class='point'/>
+                                    <img src="__WEBROOT__/Uploads/Advert/{$ad['ad_pic']}" width="500">
+                                </div>
+                                </if>
+                            </td>
+                            <td style="vertical-align:middle">{$ad['ad_url']|default='无连接'}</td>
+                            <td style="vertical-align:middle">{$ad['ad_position']}</td>
+                            <td style="vertical-align:middle">{$ad['ad_plate']|default='默认版块'}</td>
+                            <td style="vertical-align:middle">
+                                <input type="text" value="{$ad['sort_order']}" class="sort_order only-num" title="点击填写，再点击其他地方自动修改">
+                                <input type="hidden" value="{$ad['ad_id']}">
+                            </td>
+                            <td style="vertical-align:middle">
+                                <a href="{:U('Advert/editAdvert',array('ad_id'=>$ad['ad_id']))}" title="编辑">
+                                    <img src="__WEBPUBLIC__/Admin/images/icons/pencil.png" alt="编辑" title="编辑"/>
+                                </a>&nbsp;
+                                <a href="#" title="删除" class="delete-delete">
+                                    <img src="__WEBPUBLIC__/Admin/images/icons/cross.png" alt="删除" title="删除"/>
+                                </a><input type="hidden" value="{:U('Advert/deleteAdvert',array('ad_id'=>$ad['ad_id']))}">
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                    <!--内容 end-->
+
+                    <!--表尾 start-->
+                    <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="bulk-actions align-left">
+                                <input class="button delete-batch" type="button" value="批量删除"/>
+                            </div>
+                            <div class="pagination">
+                                {$page}
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <!--表尾 end-->
+                </table>
+                </form>
+            </div>
+            <!--内容表格 end-->
+        </div>
+    </div>
+</div>
+<!--主页面 end-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.sort_order').blur(function(){
+            var id = $(this).next('input').val();
+            var sort = $(this).val();
+            ajaxEditSort('{:U("Advert/editSort")}',id,sort);
+        });
+    });
+</script>
+<include file="Public:footer"/>

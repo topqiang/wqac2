@@ -1,0 +1,88 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/ajax-operate.js"></script>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">文章管理</a></li>
+        <li class="active">添加分类</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>文章管理</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('ArticleCate/categoryList')}">分类列表</a>
+            </li>
+            <li  class="active">
+                <a href="{:U('ArticleCate/addCategory')}">添加分类</a>
+            </li>
+        </ul>
+    </div>
+
+        <!--表格内容-->
+    <div class="content-box-content">
+        <form action="{:U('ArticleCate/addCategory')}" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="cate_name" class="col-sm-3 control-label">分类名称：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="cate_name" name="cate_name" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">父级分类：</label>
+                <div class="col-sm-9">
+                  {$cate_sel}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-3 control-label">排　　序：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="sort_order" name="sort_order" style="width:18% !important" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="keywords" class="col-sm-3 control-label">标　　签：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="keywords" name="keywords" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="medium-input" class="col-sm-3 control-label">分类描述：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="medium-input" name="cate_desc" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="medium-input" class="col-sm-3 control-label">是否显示：</label>
+                <div class="col-sm-9">
+                    <div class="checkbox">
+                        <input type="radio" name="is_show" value="1" checked/>&nbsp;&nbsp;是　
+                        <input type="radio" name="is_show" value="0"/>&nbsp;&nbsp;否
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="medium-input" class="col-sm-3 control-label">分类图标：</label>
+                <div class="col-sm-9">
+                    <input type="file" class="text-input" name="cate_icon">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                </div>
+            </div>
+            </form>
+        </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //分类是否允许操作
+        $("select[name='parent_id']").change(function(){
+            var cate_id = $(this).val();
+            ajaxJudge('{:U("ArticleCate/ajaxJudge")}',cate_id,9999,this);
+        });
+    });
+</script>
+<include file="Public:footer"/>

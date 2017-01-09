@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{$title}-天迅达科技WQAC管理系统</title>
+    <link rel="shortcut icon" href="http://wqac.txunda.com/favicon.ico" /></link>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="__WEBPUBLIC__/Home/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="__WEBPUBLIC__/Home/css/index.css"/>
+    <script src="__WEBPUBLIC__/Home/js/jquery.min.js"></script>
+    <script src="__WEBPUBLIC__/Home/js/toocms.js"></script>
+</head>
+<body class="am-with-topbar-fixed-top">
+
+<header class="am-topbar am-topbar-fixed-top" id="toocms">
+    <div class="am-container">
+        <h1 class="am-topbar-brand">
+            <a href="{:U('JobLogList/selectJobLog')}">WQAC</a>
+        </h1>
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only" data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+        <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                <li <eq name='active' value='1'> class="am-active"</eq>>
+                    <if condition="session('IS_VIP') eq '1'">
+                        <a href="{:U('JobLogList/vipSelectJobLog',array('p_g'=>'1'))}">WORK</a>
+                        <else/>
+                        <a href="{:U('JobLogList/selectJobLog',array('p_g'=>'1'))}">WORK</a>
+                    </if>
+                </li>
+                <li <eq name='active' value='2'> class="am-active"</eq>>
+                <a href="{:U('Bss/index')}">QA</a>
+                </li>
+                <!--<li <eq name='active' value='3'> class="am-active"</eq>>
+                <a href="{:U('AppShow/index')}">项目展示</a>
+                </li>
+                <li <eq name='active' value='4'> class="am-active"</eq>>
+                <a href="{:U('Article/index')}">相关文章</a>
+                </li>-->
+                <li <eq name='active' value='5'> class="am-active"</eq>>
+                <a href="http://api.txunda.com/" target="_blank">API</a>
+                </li>
+                <li <eq name='active' value='6'> class="am-active"</eq>>
+                <a href="{:U('Require/selectRequire')}">CRM</a>
+                </li>
+            </ul>
+
+            <if condition="$member['m_nickname']">
+            <div class="am-topbar-right">
+                <a href="{:U('Login/loginOut')}" class="t-a">退出</a>
+            </div>
+            <div class="am-topbar-right">
+                <if condition="$member['m_id'] eq '16' || $member['m_type'] eq '3'">
+                    <a href="{:U('Count/bossCount',array('m_id'=>$member['m_id']))}" class="t-a">
+                        {$member['m_nickname']}
+                    </a>
+                    <else/>
+                    <a href="{:U('JobLogList/jobLogListUserAll',array('m_id'=>$member['m_id']))}" class="t-a">
+                        {$member['m_nickname']}
+                    </a>
+                </if>
+                <if condition="$member['m_id'] eq '1' || $member['m_id'] eq '16'">
+                    <a href="{:U('Count/allGannt')}" target="_blank"><span style="color: red;">【管理员】</span></a>
+                </if>
+                <switch name="member.m_type">
+                    <case value="1">【技术】</case>
+                    <case value="2">【客户】</case>
+                    <case value="3">【交易顾问】</case>
+                    <default />default
+                </switch>
+                <switch name="member.is_vip">
+                    <case value="1"><span style="color: red;">【VIP】</span></case>
+                    <default />
+                </switch>
+            </div>
+            <else />
+            <div class="am-topbar-right">
+                <a href="{:U('Login/index')}" class="t-a">登录</a>
+            </div>
+            </if>
+        </div>
+    </div>
+</header>
+
+

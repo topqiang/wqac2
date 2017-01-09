@@ -1,0 +1,259 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">系统设置</a></li>
+        <li class="active">网站设置</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>网站设置</h3>
+        <ul id="tabs" class="nav nav-tabs">    
+            <li class="active">
+                <a href="javascript:;">基本设置</a>
+            </li>
+            <li>
+                <a href="javascript:;">内容设置</a>
+            </li>
+            <li>
+                <a href="javascript:;">邮件服务</a>
+            </li>
+            <li>
+                <a href="javascript:;">短信服务</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="tabs-content" class="content-box-content">
+        <div class="ul">
+            <form action="{:U('Config/config')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="site_title" class="col-sm-3 control-label">网站标题：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="site_title" name="site_title" value="{$config['site_title']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="site_keywords" class="col-sm-3 control-label">网站关键字：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="site_keywords" name="site_keywords" value="{$config['site_keywords']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="site_desc" class="col-sm-3 control-label">网站描述：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="site_desc" name="site_desc" value="{$config['site_desc']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="site_ipc" class="col-sm-3 control-label">网站备案号：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="site_ipc" name="site_ipc" value="{$config['site_ipc']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="copyright" class="col-sm-3 control-label">版权所有：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="copyright" name="copyright" value="{$config['copyright']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comp_tel" class="col-sm-3 control-label">联系电话：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="comp_tel" name="comp_tel" value="{$config['comp_tel']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comp_address" class="col-sm-3 control-label">联系地址：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="comp_address" name="comp_address" value="{$config['comp_address']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="admin_email" class="col-sm-3 control-label">管理邮箱：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="admin_email" name="admin_email" value="{$config['admin_email']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="admin_qq" class="col-sm-3 control-label">客服扣扣：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="admin_qq" name="admin_qq" value="{$config['admin_qq']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">站点状态：</label>
+                    <div class="col-sm-9">
+                    <div class="checkbox">
+                        <input type="radio" name="site_status" value="1" <if condition="$config['site_status'] eq 1">checked</if>>&nbsp;开启站点&nbsp;&nbsp;　
+                        <input type="radio" name="site_status" value="0" <if condition="$config['site_status'] eq 0">checked</if>>&nbsp;关闭站点&nbsp;&nbsp;
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">注册状态：</label>
+                    <div class="col-sm-9">
+                    <div class="checkbox">
+                        <input type="radio" name="register_status" value="1" <if condition="$config['register_status'] eq 1">checked</if>>&nbsp;开启注册&nbsp;&nbsp;　　
+                        <input type="radio" name="register_status" value="0" <if condition="$config['register_status'] eq 0">checked</if>>&nbsp;关闭注册&nbsp;&nbsp;
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">网站LOGO：</label>
+                    <div class="col-sm-9">
+                         <input class="text-input small-input" type="file" name="site_logo" style="margin-top:10px;"/>
+                         <if condition="!empty($config['site_logo'])">
+                            <img src="__WEBROOT__/Uploads/Config/{$config['site_logo']}">
+                        </if>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="ul" style="display:none">
+            <form action="{:U('Config/config')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="page_number" class="col-sm-3 control-label">分页设置：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="page_number" name="page_number" value="{$config['page_number']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register_score" class="col-sm-3 control-label">注册送积分：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="register_score" name="register_score" value="{$config['register_score']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register_score" class="col-sm-3 control-label">注册送积分：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="register_score" name="register_score" value="{$config['register_score']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="register_score" class="col-sm-3 control-label">评论送积分：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="register_score" name="register_score" value="{$config['']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+            <!--表单 start-->
+        <div class="ul" style="display:none">
+            <form action="{:U('Config/config')}" method="post"  class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="SMTP_HOST" class="col-sm-3 control-label">SMTP服务器地址：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="SMTP_HOST" name="SMTP_HOST" value="{$config['SMTP_HOST']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="SMTP_PORT" class="col-sm-3 control-label">SMTP服务器端口：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="SMTP_PORT" name="SMTP_PORT" value="{$config['SMTP_PORT']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="SMTP_USER" class="col-sm-3 control-label">SMTP服务帐号：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="SMTP_USER" name="SMTP_USER" value="{$config['SMTP_USER']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="SMTP_PASS" class="col-sm-3 control-label">SMTP服务密码：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="SMTP_PASS" name="SMTP_PASS" value="{$config['SMTP_PASS']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="FROM_EMAIL" class="col-sm-3 control-label">发件人邮箱地址：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="FROM_EMAIL" name="FROM_EMAIL" value="{$config['FROM_EMAIL']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="FROM_NAME" class="col-sm-3 control-label">发件人名称：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="FROM_NAME" name="FROM_NAME" value="{$config['FROM_NAME']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="REPLY_EMAIL" class="col-sm-3 control-label">回复邮箱地址：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="REPLY_EMAIL" name="REPLY_EMAIL" value="{$config['REPLY_EMAIL']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="REPLY_NAME" class="col-sm-3 control-label">回复名称：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="REPLY_NAME" name="REPLY_NAME" value="{$config['REPLY_NAME']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="ul" style="display:none">
+            <form action="{:U('Config/config')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="CPID" class="col-sm-3 control-label">CPID：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="CPID" name="CPID" value="{$config['CPID']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="USERNAME" class="col-sm-3 control-label">用户名：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="USERNAME" name="USERNAME" value="{$config['USERNAME']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="PASSWORD" class="col-sm-3 control-label">密码：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="PASSWORD" name="PASSWORD" value="{$config['PASSWORD']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CHANNEL" class="col-sm-3 control-label">CHANNEL：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="CHANNEL" name="CHANNEL" value="{$config['CHANNEL']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="TIMESTAMP" class="col-sm-3 control-label">TIMESTAMP：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="TIMESTAMP" name="TIMESTAMP" value="{$config['TIMESTAMP']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<include file="Public:footer"/>

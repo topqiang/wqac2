@@ -1,0 +1,103 @@
+<include file="Public:header"/>
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">需求管理</a></li>
+        <li class="active">需求列表</li>
+    </ul>
+
+    <div class="page-header page-header1 clearfix">
+        <h3>需求管理</h3>
+        <ul class="nav nav-tabs">    
+            <li class="active">
+                <a href="{:U('Requirement/RequirementList')}">需求列表</a>
+            </li>
+        </ul>
+    </div>
+    <div class="search-content">
+        <form action="{:U('Requirement/requirementList')}" method="post"class="search-form form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="re_qq">QQ号码</label>
+                <input class="earch-input form-control" id="re_qq" type="text" name="re_qq" value="{$request['re_qq']}" placeholder="QQ号码"/>　
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="re_name">需求名称</label>
+                <input class="earch-input form-control" id="re_name" type="text" name="re_name" value="{$request['re_name']}" placeholder="需求名称"/>　
+            </div>
+            <button type="submit" class="btn derive">查询</button>　
+        </form>
+    </div>
+	<div class="requireList">
+        <form action="{:U('Requirement/deleteRequirement')}" method="post" class="batch-form">
+		    <table class="table table-striped table-framed table-hover">
+                <thead>
+                <tr>
+                    <th width="4%">
+                        <input class="check-all" type="checkbox" />
+                    </th>
+                    <th width="10%">需求名称</th>
+                    <th>客户QQ</th>
+                    <th>提交时间</th>
+                    <th>QQ链接</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+
+                <!--内容 start-->
+                <tbody class="tbody">
+                <if condition="empty($requirement_list)">
+                    <tr><td colspan="20"><span style="font-size:14px;">暂无数据</span></td></tr>
+                </if>
+                <style>
+                    .requireList .color0{color:black;}
+                    .requireList .color1{color:green;}
+                    .requireList .color2{color:orange;}
+                    .requireList .color3{color:red;}
+                </style>
+                <volist name="requirement_list" id="vo">
+                    <tr>
+                        <td><input type="checkbox" value="{$vo.re_id}" name="re_id[]"/></td>
+                        <td><a href="{:U('Requirement/saveRequirement',array('re_id'=>$vo['re_id']))}" class="color{$vo.color}"
+                        <if condition="($vo['color']) eq 1">
+                            title="可以做。"
+                        <elseif condition="($vo['color']) eq 2"/>
+                            title="可以做，比较麻烦。"
+                        <elseif condition="($vo['color']) eq 3"/>
+                            title="不可以做。"
+                        <else />
+                            title="还未评价。"
+                        </if>
+                        >{$vo.re_name}</a></td>
+                        <td>{$vo.re_qq}</td>
+                        <td>{$vo.ctime|date='Y-m-d',###}</td>
+                        <td><a href="__ROOT__/index.php?s=/Requirement/findRequirement/qq/{$vo.re_qq}" target="_blank">http://log.genduanzi.com/index.php?s=/Requirement/findRequirement/qq/{$vo.re_qq}</a></td>
+                        <td>
+                            <a href="{:U('Requirement/saveRequirement',array('re_id'=>$vo['re_id']))}" title="编辑" class="modify">
+                                <span class="icon glyphicon glyphicon-pencil"></span>
+                            </a>&nbsp;
+                            <a href="#" title="删除" class="delete-delete">
+                                <span class="icon glyphicon glyphicon-remove"></span>
+                            </a><input type="hidden" value="{:U('Requirement/deleteRequirement',array('re_id'=>$vo['re_id']))}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <!--内容 end-->
+                <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="bulk-actions fl">
+                                <input type="button" class="btn delete-batch" value="批量删除">　
+
+                            </div>
+                            <div class="fr">
+                                {$page}
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+	    </form>
+    </div>
+</div>
+<include file="Public:footer"/>

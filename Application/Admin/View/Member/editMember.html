@@ -1,0 +1,197 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="__WEBPUBLIC__/Uploadify/uploadify.css" type="text/css" />
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li><a href="">会员管理</a></li>
+        <li class="active">编辑会员</li>
+    </ul>
+    <div class="page-header clearfix">
+        <h3>会员管理</h3>
+        <ul id="tabs" class="nav nav-tabs">    
+            <li class="active">
+                <a href="javascript:;">编辑信息</a>
+            </li>
+            <li>
+                <a href="javascript:;">修改积分</a>
+            </li>
+            <li>
+                <a href="javascript:;">修改密码</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="tabs-content" class="content-box-content">
+        <div class="ul">
+            <form action="{:U('Member/editMember')}" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="m_id" value="{$member['m_id']}">
+                <div id="upload_logo">
+                    <div id="plogo">
+                        <if condition="!empty($member['m_head'])">
+                            <img src="__WEBROOT__/Uploads/HeadPic/{$member['m_head']}" id="upImg" />
+                        <else/>
+                            <img src="__ROOT__/Uploads/pLogo/default.gif" id="upImg" />
+                        </if>
+                         <input type="hidden" id="p_logo_name"  name="m_head" value="{$member['m_head']}"/>
+                    </div>
+                    <input id="file_upload" name="file_upload" type="file" multiple="true" value="" />
+                </div>
+                <div class="form-group">
+                    <label for="m_account" class="col-sm-3 control-label">账　　号：</label>
+                    <div class="col-sm-9">
+                      <input type="text" value="{$member['m_account']|default='未填写'}" class="form-control" id="m_account" name="m_account" placeholder="账号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="m_nickname" class="col-sm-3 control-label">昵　　称：</label>
+                    <div class="col-sm-9">
+                      <input type="text" value="{$member['m_nickname']|default='未填写'}" class="form-control" id="m_nickname" name="m_nickname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="m_mobile" class="col-sm-3 control-label">电　　话：</label>
+                    <div class="col-sm-9">
+                      <input type="text" {$member['m_mobile'] == 0 ? '未填写' : $member['m_mobile']} class="form-control" id="m_mobile" name="m_mobile">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jf" class="col-sm-3 control-label">积　　分：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="jf" value="{$member['m_score']}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="regtime" class="col-sm-3 control-label">注册时间：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="regtime" value="{$member['ctime']|date='Y-m-d',###}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="m_regtime" class="col-sm-3 control-label">修改时间：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="m_regtime" value="{$member['utime']|date='Y-m-d',###}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="logintime" class="col-sm-3 control-label">登录时间：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="logintime" value="{$member['last_login_time']|date='Y-m-d',###}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="loginIp" class="col-sm-3 control-label">登　录IP：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="loginIp" value="{$member['last_login_ip']}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="ul" style="display:none">
+            <form action="{:U('Member/editScore')}" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="m_id" value="{$member['m_id']}">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">改前积分：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="{$member['m_score']}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">改后积分：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" value="{$member['m_score']}" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">积分变量：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="change_measure">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">修改规则：</label>
+                    <div class="col-sm-9">
+                        <select name="change_rule" class="form-control input-sm">
+                            <option value="0">--选择修改规则--</option>
+                            <option value="1">-</option>
+                            <option value="2">+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">修改原因：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="change_cause">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="ul" style="display:none">
+            <form action="{:U('Member/modifyPwd')}" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="m_id" value="{$member['m_id']}">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-3 control-label">密　　码：</label>
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="pwd" name="pwd">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwded" class="col-sm-3 control-label">确认密码：</label>
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="pwded" name="pwded">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='__PUBLIC__/Uploadify/jquery.uploadify.min.js'></script>
+<script>
+    var img = '';
+    $('#file_upload').uploadify({
+        swf : '__PUBLIC__/Uploadify/uploadify.swf',  //引入Uploadify核心Flash文件
+        uploader : '{:U("AdminBasic/upload1")}',   //PHP处理脚本地址
+        width : 128,    //上传按钮宽度
+        height : 30,    //上传按钮高度
+        buttonImage : '__PUBLIC__/Common/images/uplogo.png', //上传按钮背景图地址
+        fileTypeDesc : 'Image File',    //选择文件提示文字
+        fileTypeExts : '*.jpeg; *.jpg; *.png; *.gif',   //允许选择的文件类型
+        'onUploadSuccess' : function(file, data, response) {
+          $('#upImg').attr('src','__ROOT__/Uploads/HeadPic/{$time|tiem_ym=###}/'+data); 
+          $('#p_logo_name').val('{$time|tiem_ym=###}/'+data);      
+      }
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //选择积分规则
+        $("select[name='change_rule']").change(function(){
+            var rule = $(this).val();//修改规则
+            var old_score = $('.old-score').text();//原有积分
+            var measure = $("input[name='change_measure']").val();//积分变量
+            if(rule != 0){
+                if(rule == 1){
+                    $('.new-score').text(parseInt(old_score)-parseInt(measure));
+                }else{
+                    $('.new-score').text(parseInt(old_score)+parseInt(measure));
+                }
+            }
+        });
+    });
+</script>
+<include file="Public:footer"/>

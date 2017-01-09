@@ -1,0 +1,64 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">系统设置</a></li>
+        <li class="active">友情链接</li>
+        <li class="active">编辑友情链接</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>友情链接</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('FriendlyLink/friendlyLinkList')}">友情链接列表</a>
+            </li>
+            <li class="active">
+                <a href="{:U('FriendlyLink/addFriendlyLink')}">编辑友情链接</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-box-content">
+        <form action="{:U('FriendlyLink/editFriendlyLink')}" method="post" class="form-horizontal" role="form">
+            <input type="hidden" name="friendly_id" value="{$link['friendly_id']}"/>
+            <div class="form-group">
+                <label for="friendly_name" class="col-sm-3 control-label">链接名称：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="friendly_name" name="friendly_name" value="{$link['friendly_name']}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="friendly_url" class="col-sm-3 control-label">链接网址：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="friendly_url" name="friendly_url" value="{$link['friendly_url']}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-3 control-label">排　　序：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="sort_order" name="sort_order" value="{$link['sort_order']}" style="width:18%">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-3 control-label">链接LOGO：</label>
+                <div class="col-sm-9">
+                  <input type="file" class="text-input small-input" name="friendly_logo">
+                  <if condition="!empty($link['friendly_logo'])">
+                    <p>
+                        　<img src="__WEBROOT__/Uploads/FriendlyLogo/{$link['friendly_logo']}">
+                    </p>
+                    </if>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-default btn-primary">确认修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<include file="Public:footer"/>

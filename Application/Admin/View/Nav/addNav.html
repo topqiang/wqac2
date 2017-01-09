@@ -1,0 +1,72 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">导航管理</a></li>
+        <li class="active">添加导航</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>导航管理</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('Nav/navList')}">导航列表</a>
+            </li>
+            <li  class="active">
+                <a href="{:U('Nav/addNav')}">添加导航</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-box-content">
+            <!--表单 start-->
+        <div class="tab-content default-tab form" id="tab2">
+            <form action="{:U('Nav/addNav')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="nav_name" class="col-sm-3 control-label">导航名称：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="nav_name" name="nav_name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nav_link" class="col-sm-3 control-label">导航链接：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="nav_link" name="nav_link">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sort_order" class="col-sm-3 control-label">排　　序：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="sort_order" name="sort_order" value="0" style="width:18% !important">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">新窗口打开：</label>
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            <input type="radio" name="is_target" value="1" checked>&nbsp;是&nbsp;&nbsp;
+                            <input type="radio" name="is_target" value="0">&nbsp;否&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">是否显示：　</label>
+                    <div class="col-sm-9">
+                        <div class="checkbox">
+                            <input type="radio" name="is_show" value="1" checked>&nbsp;是&nbsp;&nbsp;
+                            <input type="radio" name="is_show" value="0">&nbsp;否&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--主页面 end-->
+<include file="Public:footer"/>

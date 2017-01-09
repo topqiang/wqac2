@@ -1,0 +1,90 @@
+<include file="Public:header"/>
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">需求类别管理</a></li>
+        <li class="active">需求类别列表</li>
+    </ul>
+
+    <div class="page-header page-header1 clearfix">
+        <h3>需求类别管理</h3>
+        <ul class="nav nav-tabs">    
+            <li class="active">
+                <a href="{:U('RequireType/RequirementList')}">需求类别列表</a>
+            </li>
+            <li>
+                <a href="{:U('RequireType/addRequireType')}">添加需求类别</a>
+            </li>
+        </ul>
+    </div>
+    <div class="search-content">
+        <form action="{:U('RequireType/requirementList')}" method="post"class="search-form form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="re_qq">QQ号码</label>
+                <input class="earch-input form-control" id="re_qq" type="text" name="re_qq" value="{$request['re_qq']}" placeholder="QQ号码"/>　
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="re_name">需求类别名称</label>
+                <input class="earch-input form-control" id="re_name" type="text" name="re_name" value="{$request['re_name']}" placeholder="需求类别名称"/>　
+            </div>
+            <button type="submit" class="btn derive">查询</button>　
+        </form>
+    </div>
+	<div class="requireList">
+        <form action="{:U('RequireType/deleteRequirement')}" method="post" class="batch-form">
+		    <table class="table table-striped table-framed table-hover">
+                <thead>
+                <tr>
+                    <th width="4%">
+                        <input class="check-all" type="checkbox" />
+                    </th>
+                    <th width="10%">需求类别名称</th>
+                    <th>注意事项</th>
+                    <th>相关案例</th>
+                    <th>添加时间</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+
+                <!--内容 start-->
+                <tbody class="tbody">
+                <if condition="empty($require_type_list)">
+                    <tr><td colspan="20"><span style="font-size:14px;">暂无数据</span></td></tr>
+                </if>
+                <volist name="require_type_list" id="vo">
+                    <tr>
+                        <td><input type="checkbox" value="{$vo.re_type_id}" name="re_type_id[]"/></td>
+                        <td>{$vo.type_name}</td>
+                        <td>{$vo.type_note}</td>
+                        <td>{$vo.type_case}</td>
+                        <td>{$vo.ctime|date='Y-m-d',###}</td>
+                        <td>
+                            <a href="{:U('RequireType/saveRequireType',array('re_type_id'=>$vo['re_type_id']))}" title="编辑" class="modify">
+                                <span class="icon glyphicon glyphicon-pencil"></span>
+                            </a>&nbsp;
+                            <a href="#" title="删除" class="delete-delete">
+                                <span class="icon glyphicon glyphicon-remove"></span>
+                            </a><input type="hidden" value="{:U('RequireType/deleteRequireType',array('re_type_id'=>$vo['re_type_id']))}">
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <!--内容 end-->
+                <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="bulk-actions fl">
+                                <input type="button" class="btn delete-batch" value="批量删除">　
+
+                            </div>
+                            <div class="fr">
+                                {$page}
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+	    </form>
+    </div>
+</div>
+<include file="Public:footer"/>

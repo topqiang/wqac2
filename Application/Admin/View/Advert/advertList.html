@@ -1,0 +1,111 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/ajax-operate.js"></script>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">系统设置</a></li>
+        <li class="active">广告设置</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>广告设置</h3>
+        <ul class="nav nav-tabs">    
+            <li  class="active">
+                <a href="{:U('Advert/advertList')}">广告列表</a>
+            </li>
+            <li>
+                <a href="{:U('Advert/addAdvert')}">添加广告</a>
+            </li>
+        </ul>
+    </div>
+
+    <include file="Public:notification"/>
+
+    <div class="content-box-content">
+        <form action="{:U('Advert/deleteAdvert')}" method="post" class="batch-form">
+            <table class="table table-striped table-framed table-hover">
+                <thead>
+                    <tr>
+                        <th width="4%">
+                            <input class="check-all" type="checkbox" />
+                        </th>
+                        <th width="10%">添加时间</th>
+                        <th width="25%">广告描述</th>
+                        <th>广告链接</th>
+                        <th>广告位置</th>
+                        <th>所属板块</th>
+                        <th>排序</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </thead>
+                    <!--标题 end-->
+
+                    <!--内容 start-->
+                    <tbody class="tbody">
+                    <if condition="empty($ad_list)">
+                        <tr><td colspan="10"><span style="font-size:14px;">暂无数据</span></td></tr>
+                    </if>
+                    <volist name="ad_list" id="ad">
+                        <tr>
+                            <td><input type="checkbox" name="ad_id[]" value="{$ad['ad_id']}"/></td>
+                            <td style="vertical-align:middle">{$ad['ctime']|date='Y-m-d',###}</td>
+                            <td style="vertical-align:middle">
+                                <a href="" class="underline pop">{$ad['ad_desc']}</a>
+                                <if condition="!empty($ad['ad_pic'])">
+                                <div class='img-position' style="display:none;">
+                                    <img src="__WEBPUBLIC__/Admin/images/icons/point.png" class='point'/>
+                                    <img src="__WEBROOT__/Uploads/Advert/{$ad['ad_pic']}" width="500">
+                                </div>
+                                </if>
+                            </td>
+                            <td style="vertical-align:middle">{$ad['ad_url']|default='无连接'}</td>
+                            <td style="vertical-align:middle">{$ad['ad_position']}</td>
+                            <td style="vertical-align:middle">{$ad['ad_plate']|default='默认版块'}</td>
+                            <td style="vertical-align:middle">
+                                <input type="text" value="{$ad['sort_order']}" class="sort_order only-num" title="点击填写，再点击其他地方自动修改">
+                                <input type="hidden" value="{$ad['ad_id']}">
+                            </td>
+                            <td style="vertical-align:middle">
+                                <a href="{:U('Advert/editAdvert',array('ad_id'=>$ad['ad_id']))}" title="编辑" class="modify">
+                                    <span class="icon glyphicon glyphicon-pencil"></span>
+                                </a>&nbsp;
+                                <a href="#" title="删除" class="delete-delete">
+                                   <span class="icon glyphicon glyphicon-remove"></span>
+                                </a><input type="hidden" value="{:U('Advert/deleteAdvert',array('ad_id'=>$ad['ad_id']))}">
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                    <!--内容 end-->
+
+                    <!--表尾 start-->
+                    <tfoot>
+                    <tr>
+                        <td colspan="20">
+                            <div class="bulk-actions fl">
+                                <input class="btn delete-batch" type="button" value="批量删除"/>
+                            </div>
+                            <div class="fr">
+                                {$page}
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                    <!--表尾 end-->
+                </table>
+                </form>
+            </div>
+            <!--内容表格 end-->
+</div>
+<!--主页面 end-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.sort_order').blur(function(){
+            var id = $(this).next('input').val();
+            var sort = $(this).val();
+            ajaxEditSort('{:U("Advert/editSort")}',id,sort);
+        });
+    });
+</script>
+<include file="Public:footer"/>

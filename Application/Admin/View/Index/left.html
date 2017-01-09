@@ -1,0 +1,123 @@
+<include file="Public:header"/>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-inner">
+            <ul class="nav nav-list" id="left-menu">
+                <li>
+                    <a href="{:U('Index/main')}" target="main"  class="nav-top-item no-submenu active">
+                        <span class="icon glyphicon glyphicon-home"></span>
+                        <span class="hidden-minibar">后台首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-user"></span>
+                        <span class="hidden-minibar">会员管理</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:U('Member/memberList')}" target="main">会员列表</a>    
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-align-justify"></span>
+                        <span class="hidden-minibar">作品管理</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="ul">
+                        <li>
+                            <a href="{:U('Project/selectProject')}" target="main">作品列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-bullhorn"></span>
+                        <span class="hidden-minibar">需求管理</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:U('Require/selectRequire')}" target="main">需求列表</a>
+                        </li>
+                        <li>
+                            <a href="{:U('RequireType/selectRequireType')}" target="main">需求类别列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-book"></span>
+                        <span class="hidden-minibar">文章管理</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:U('Article/articleList')}" target="main">文章列表</a>    
+                        </li>
+                        <li>
+                            <a href="{:U('ArticleCate/categoryList')}" target="main">文章分类</a>    
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-comment"></span>
+                        <span class="hidden-minibar">内容管理</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" target="main">用户评论</a>    
+                        </li>
+                        <li>
+                            <a href="javascript:;" target="main">投诉反馈</a>    
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-cog"></span>
+                        <span class="hidden-minibar">系统设置</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:U('Config/config')}" target="main">网站设置</a>    
+                        </li>
+                        <li>
+                            <a href="{:U('Nav/navList')}" target="main">导航设置</a>    
+                        </li>
+                        <li>
+                            <a href="{:U('Advert/advertList')}" target="main">广告设置</a>    
+                        </li>
+                        <li>
+                            <a href="{:U('FriendlyLink/friendlyLinkList')}" target="main">友情链接</a>    
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="nav-top-item">
+                        <span class="icon glyphicon glyphicon-user"></span>
+                        <span class="hidden-minibar">管理员</span>
+                        <span class="arrow glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:U('Admin/adminList')}" target="main">管理员列表</a>    
+                        </li>
+                        <li>
+                            <a href="{:U('AdminGroup/groupList')}" target="main">管理员分组</a>    
+                        </li>
+                        <li>
+                            <a href="{:U('Admin/editPass')}" target="main">修改密码</a>    
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

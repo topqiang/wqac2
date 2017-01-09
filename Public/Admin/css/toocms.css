@@ -1,0 +1,213 @@
+html {height: 100%;}
+body{font-family: "Proxima Nova","ProximaNova-Light",\5FAE\8F6F\96C5\9ED1,'Nunito', myriad pro, tahoma, sans-serif; font-size: 12px}
+h1,h2,h3,h4,h5,h6{font-family:"Proxima Nova","ProximaNova-Light",\5FAE\8F6F\96C5\9ED1,'Nunito', myriad pro, tahoma, sans-serif;font-weight:normal;color:#666;}
+.clearfix:after{clear:both; content:" ";display: block; visibility:hidden; height:0}
+.fl{float: left;}
+.fr{float: right;}
+.pointer{cursor: pointer;}
+.dis-none{ display: none;}
+.f-left{ float: left !improtant;}
+.f-right{ float: right;}
+.clear{clear: both;}
+
+/*头部样式*/
+header{width: 100%; background: #42474D}
+header .row{width: 98%; margin: 0 auto}
+.navbar-header a .logo {height: 50px; color: #fff; font-weight: bold; font-size: 22px}
+.navbar-header .logo img{display: block; width: 100%; height: auto;}
+.navbar{border-radius:0;margin-bottom:0;border:none;height:50px; color: #fff}
+.navbar .navbar-nav > li > a{color: #fff;}
+.navbar .user-menu > li{padding:0 15px; text-align: center;}
+.navbar .user-menu > li.last a{width: 50px; height: 50px;}
+.navbar .user-menu > li > a,.navbar .user-menu > li > span{height:50px; line-height:50px; padding: 0;width: 130px;}
+.navbar .user-menu > li > a:hover,.navbar .user-menu > li > a:focus{background: #42474D}
+.navbar .navbar-nav > li > a.settings > span.icon,.navbar .navbar-nav > li > span.settings > span.icon{font-size: 18px;}
+.navbar .navbar-nav > li.last > a.settings > span.icon{font-size: 30px;width: 30px; height: 30px; padding-top: 10px;}
+.navbar .navbar-nav > li .txt{color: #ddd}
+
+/*左边栏*/
+.sidebar{ position: absolute; width: 200px; height: 100%; background: #59727f;}
+.sidebar-inner .nav li a{color: #eee; font-size: 14px; font-weight: 400; padding: 10px;}
+.sidebar-inner span.icon{margin:0 10px; font-size: 18px;}
+.sidebar-inner .nav li a:hover,.sidebar-inner .nav li > a.active{text-decoration: none; background: #708c9b; color#fff; -webkit-transition:all .3s ease;-moz-transition: all .3s ease;-o-transition:all .3s ease;transition:all .3s ease;}
+.sidebar-inner .nav > li ul{list-style: none; padding-left: 0; display: none; background: #7f98a5; margin-left: 0}
+.sidebar-inner .nav > li ul > li > a{font-size: 12px; font-weight: 400; display: block; color: #eee; padding: 10px 5px 10px 45px}
+.sidebar-inner .nav > li ul > li > a.active{background:#7F98A5 !important; color: #fff !important}
+
+/*main主体样式*/
+.content{ background: #fff; margin: 0 10px}
+.content .page-title{ margin-top: 30px; margin-bottom: 0; color: #495b79}
+.content .col-md-12{padding-left: 25px; padding-right: 25px}
+.content-box-content{position: relative;}
+.page-title{border-bottom: 1px solid #ddd; padding-bottom: 9px}
+.content-box-column{padding-top: 20px;}
+.column-left{width: 48%; float: left;}
+.column-right{width: 48%; float: right;}
+.content-box-header{background: #42474D; padding: 10px;}
+.content-box-header h3{color: #fff; font-size: 18px;}
+.column-right p, .column-left p{font-size: 14px;border-bottom: 1px solid #E9E9E9; padding: 10px 3px; margin: 0}
+
+
+/*列表表格*/
+.table>thead>tr>th{background:#E8E8E8; border-bottom: 0 }
+.table>tbody>tr>td,.table>tfoot>tr>td{border-top:0}
+
+.breadcrumb{margin-top: 10px; margin-bottom: 0; border-radius: 0}
+.page-header{padding-bottom: 0; margin-top: 20px; margin-bottom: 20px}
+.page-header.page-header1{margin-bottom: 0}
+.page-header h3{float: left; margin-top: 0; color: #495b79}
+.page-header .nav{float: right; font-size: 16px; border-bottom: none;}
+.bulk-actions{margin: 20px 0}
+
+/*分页样式*/
+.pagination {text-align: right;padding: 5px 0 0px 0;font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px}
+.pagination a.number, #go { border: 1px solid #ddd;}
+.pagination a.current, #go { background: #4B9802;border-color: #4B9802 !important;color: #fff !important;}
+.pagination a.current:hover {text-decoration: underline;}
+.pagination #go{cursor:pointer;height:22px;}
+.pagination #page_num{ width:30px;height:18px;border:1px solid #ccc}
+
+/**结尾样式**/
+.footer{border-top:1px solid #ccc;margin:40px 0 0 0;padding:20px 0; font-size: 12px}
+
+
+/********************************      样式扩展      ********************************/
+
+/**通用小部件**/
+.arrow{float: right; font-size: 12px; position: absolute; top: 16px; right: 15px}
+.bg-info{background: #ebeef2!important}
+.info-box{margin-bottom:20px; border-radius: 4px}
+.info-box .info-icon{display: inline-block; width: 28%; text-align: center; padding: 20px;}
+.info-box span.icon{font-size: 36px; color: #fff}
+.info-details{display: inline-block; width: 70%; padding-left: 3%; padding-right: 3%}
+.info-details h4{font-size: 14px;}
+.bg-info-dark{background: #5dd0ed!important}
+
+/*全局按钮样式*/
+.button{display:inline-block;background: #4B9802;border:1px solid #fff !important;padding:5px 15px !important; color: #fff}
+.button:hover{background: #459300}
+.btn{color: #fff}
+.add .icon ,.modify .icon,.delete-delete .icon{color: #000; font-size: 14px;}
+.delete-batch{background: #d9534f;}
+.delete-batch:hover{background: red; color: #fff}
+.derive,.btn-grren{background: #8fce35}
+.derive:hover,.btn-grren:hover{background: #459300; color: #fff}
+.atrous{background: #42474D}
+.atrous:hover{background: #333}
+
+
+.form-horizontal{width: 450px;}
+.form-horizontal.admin-group{width: 100%}
+.form-horizontal .group-name{width: 306px}
+.form-group{margin-bottom: 20px}
+
+.label.red{background:#c00;}
+.label.green{background:#779500}
+.label.orange{background: #f0ad4e}
+.label.blue{background: #09c}
+
+/*是否显示颜色设置*/
+.txt-red{color:#c00; }
+.txt-grren{color:#779500 }
+.is-show-operate{cursor: pointer;}
+
+.checkbox input[type="checkbox"]{position: static; margin: 0}
+
+/*广告图片大小*/
+.ad_pic img{width: 100%; max-height: 200;}
+
+/*上传*/
+#upload_logo{position:absolute;top: 0px; right: 20px;}
+#upload_cover{position:absolute;top: 170px; right: 20px;}
+#upload_cover #cover{width: 128px; height: 200px;}
+#upload_cover #cover img{width: 128px; height: 200px;}
+
+/*列表全选背景色*/
+#main-content tbody tr.alt-row-select{background: #DBEDB4}
+
+/*搜索框  及其中表单的样式*/
+.search-form .input-sm{margin-right: 12px}
+.search-content{ padding: 10px 0 10px 0px;}
+.search-content .small-input{ width: 15% !important;}
+
+/**时间矿背景**/
+.start-time,.end-time{width: 100px;}
+
+/**折线 饼状图**/
+#line-container{min-width:310px;min-height:620px; margin-top:20px;}
+#pie-container{width:450px; height:450px; margin-top:40px; margin-left: 5px;float:left;}
+
+
+/** 专为微信回复列表查询配置 **/
+.tab-content .search-content .small-input{width: 36% !important;}
+.search-content .search-input{background:url('../images/icons/search.png') no-repeat;text-indent:18px;}
+
+/**不同时间段统计**/
+.content-box input.text-input{padding:6px; border: 1px solid #d5d5d5; color: #333; font-size: 13px; cursor: pointer;}
+.content-box .main-time{padding: 15px 0 15px 20px;font-size: 14px; border-bottom: 1px dashed #ccc;}
+.content-box .main-time span{position: relative;}
+.content-box .main-time .icon{position: absolute; right: 3px; top: 0; font-size: 22px; color: #42474D}
+
+
+/**会员详情页头像与文字**/
+.tab-content .pic-text-div{padding: 20px 0 0 0;border: 0px solid #000; width:550px;}
+.tab-content .pic-text-div .p-text{border: 0px solid #000;width:360px;float: left; margin-top: 3px; margin-left: 20px; padding: 0 0 20px 0;}
+.tab-content .pic-text-div .p-pic{float: left;padding: 3px;border: 1px solid #ccc;}
+
+/** 需要有下划线的超链接 **/
+a.underline{text-decoration: underline;}
+
+/** 广告浮动图片div样式 **/
+.img-position{border: 1px solid #222222; background: #222222;padding: 5px;position: absolute;top:0px;left: 0px; z-index: 99999999}
+/** 广告浮动图片指向图样式 **/
+.img-position .point{position:absolute;top:32px;left:-15px;z-index: 99999999}
+
+/** 排序输入框 **/
+.sort_order{ border: none;width:30px;background: #ddd;text-align: center;cursor: pointer;}
+
+/** 大文本框 **/
+.text-area{ width:45% !important; height:150px !important;padding: 10px 0 0 10px;}
+
+/** 提示样式 **/
+.prompt{color: #999;}
+
+/** 微信api链接教程文字提示 **/
+.explain{font-size:18px;background-color: #ededed;color:#58A002; padding:15px 0 15px 10px;}
+
+/** 微信回复列表中 纯文本回复...等字样 鼠标进入等效果**/
+.wchart-replay{float: right; padding: 20px 0 20px 0;text-align: center;width:140px;border: 2px dashed #ccc; margin-right: 20px;font-size: 15px;cursor: pointer;}
+.wchart-replay:hover{background-color: #ededed;}
+.wchart-replay a{color: #666;}
+
+
+
+
+/*需求 css*/
+.requirement{width: 1000px; margin: 0 auto}
+.requirement h1,h2,h3{font-size: normal; margin: 0; padding: 0; color: #000;}
+.requirement h1{position: relative; top: 0;}
+.requirement input,textarea{border: 1px solid #ddd}
+.requirement .textareaBox{margin-bottom: 20px; overflow: hidden;}
+.requirement .lab{float:left; display:block; width:120px; margin-right: 10px; height: 40px;
+ line-height: 40px; text-align: center; background: #0080c3; color: #fff; padding: 0; font-size: 16px}
+.requirement .reName{width:866px; float: left; margin: 0; height: 36px; line-height: 36px; font-size: 16px;}
+.requirement .textareaBox .tit{width: 1000px; height: 40px; background: #0080c3; overflow: hidden; text-align: center;}
+.requirement .textareaBox h1{display: inline-block;font-size: 20px;height: 40px; line-height: 40px; overflow: hidden; text-align: center; color: #fff;}
+.requirement .textareaBox h1 i{ display: inline-block; float: left; width: 40px; height: 40px; background: url(../images/oo.png) no-repeat }
+.requirement .textareaBox h1 span{display: inline-block; float: left; height: 40px; line-height: 40px;}
+.requirement .textareaBox .pp{padding: 0; color: #777;height: 50px; line-height: 50px; font-size: 14px}
+.requirement .textareaBox textarea{width:978px; height: 150px; padding: 10px}
+.requirement .other p{font-size: 14px;}
+.requirement .app{overflow: hidden;}
+.requirement .app p{float: left;margin-right: 10px;}
+.requirement .app p label{font-weight: normal; display: inline;}
+.requirement .qq,.requirement .app-time{margin: 0; height: 34px; line-height: 34px; width:996px}
+.requirement .blod ,.requirement .pp{font-weight: bold; font-size: 16px; padding: 10px 0}
+.requirement .btn{text-align: center; margin-bottom: 40px}
+.requirement .sub{width: 120px; height: 44px; line-height: 44px; border: 0; background: #0080c3; color: #fff; font-size: 16px; font-weight: blod; cursor:pointer;}
+.requirement .time{margin-bottom: 10px; overflow: hidden;}
+.requirement .time div{float: left;}
+
+
+
+

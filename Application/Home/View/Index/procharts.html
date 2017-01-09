@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<include file="Common:header"/>
+<include file="Common:left"/>
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content">
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+ <div class="box-cen">
+ 	<img src="__PUBLIC__/Home/img/logo1.png" class="disb macen"/>
+ </div>
+<div class="container-default">
+	<style>
+		.count1{margin-bottom: 20px;background: #fff;}
+		.tb{padding-top: 20px;}
+	</style>
+	
+	<div class="margin-t-20 count1 ovhid">
+	    <div class="col-md-12">
+	        <div id="gantt-container" style="width:100%;height:380px"></div>
+	    </div>
+	</div>
+	
+	<div class="count1 ovhid">
+		<div class="col-md-7">
+			<div id="container" style="width:100%;height:380px"></div>
+		</div>
+		<div class="col-md-5">
+			<h3>各部门进度时间表</h3>
+			<div class="tb">
+			<table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>职位名称</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>工作日</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                            <td>UI</td>
+                            <td>2016-03-25</td>
+                            <td>2016-04-14</td>
+                            <td>13</td>
+                        </tr><tr>
+                            <td>HTML</td>
+                            <td>2016-05-04</td>
+                            <td>2016-08-26</td>
+                            <td>25</td>
+                        </tr><tr>
+                            <td>PHP</td>
+                            <td>2016-04-07</td>
+                            <td>2016-08-26</td>
+                            <td>85</td>
+                        </tr><tr>
+                            <td>Android</td>
+                            <td>2016-03-31</td>
+                            <td>2016-06-23</td>
+                            <td>24</td>
+                        </tr><tr>
+                            <td>IOS</td>
+                            <td>2016-03-29</td>
+                            <td>2016-08-13</td>
+                            <td>59</td>
+                        </tr>           </tbody>
+                    <tfoot>
+                        <tr style="color:black">
+                            <td><b>总工作日</b></td>
+                            <td><em>206</em>工作日</td>
+                            <td><b>项目状态</b></td>
+                            <td>
+                            <em class="tips" style="color:red">进行中</em>
+                                                    </td>
+                        </tr>
+                    </tfoot>
+                </table>	
+				
+				
+			<!--<table class="am-table am-table-bordered">
+				<thead>
+					<tr>
+						<th>职位名称</th>
+						<th>开始时间</th>
+						<th>结束时间</th>
+						<th>工作日</th>
+					</tr>
+				</thead>
+				<tbody>
+				<!--<volist name="position" id="po">
+					<tr>
+						<td>{$po['title']}</td>
+						<td>{$po['start_time']}</td>
+						<td>{$po['end_time']}</td>
+						<td>{$po['num']}</td>
+					</tr>
+				</volist>
+				</tbody>
+				<tfoot>
+					<tr style="color:black">
+						<td><b>总工作日</b></td>
+						<td><em>{$total}</em>工作日</td>
+						<td><b>项目状态</b></td>
+						<td>
+						<if condition="($pjd['p_g'] eq 1)">
+	                        <em class="tips" style="color:red">进行中</em>
+	                        <elseif condition="($pjd['p_g'] eq 2)"/>
+	                        <em class="tips" style="color:bule">修改中</em>
+	                        <elseif condition="($pjd['p_g']) eq 3" />
+	                        <em class="tips" style="color:green">已完成</em>
+	                        <else />
+	                        <span class="tips">未开始</span>
+	                    </if>
+						</td>
+					</tr>
+				</tfoot>
+			</table>-->
+			</div>
+		</div>
+	
+	    <if condition="$id_see eq 1 || $id_see eq 16 ">
+	        <div class="col-md-5" style="width:100%;">
+	            <h1>项目消费统计表</h1>
+	            <div class="tb">
+	                <table class="table table-bordered">
+	                    <thead>
+	                    <tr>
+	                        <th>人员名称</th>
+	                        <th>开始时间</th>
+	                        <th>结束时间</th>
+	                        <th>工作日</th>
+	                        <th>费用</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    <volist name="column" id="po">
+	                        <tr>
+	                            <td>{$po['name']}</td>
+	                            <td>{$po['start_time']}</td>
+	                            <td>{$po['end_time']}</td>
+	                            <td>{$po['num']}</td>
+	                            <td>{$po['total_money']}元</td>
+	                        </tr>
+	                    </volist>
+	                    </tbody>
+	                    <tfoot>
+	                    <tr style="color:black">
+	                        <td><b>总工作日</b></td>
+	                        <td><em>{$total}</em>工作日</td>
+	                        <td></td>
+	                        <td><b>总支出</b></td>
+	                        <td>
+	                            {$total_m}元|||||{$lv}%
+	                        </td>
+	                    </tr>
+	                    </tfoot>
+	                </table>
+	            </div>
+	        </div>
+	    </if>
+	
+	
+	</div>
+	
+	<div class="count1 ovhid">
+		<div class="col-md-12">
+			<div id="container1" style="width:100%;height:380px"></div>
+		</div>
+	</div>
+	
+	<div class="count1 ovhid">
+		<div class="col-md-12">
+			<div id="line-container" style="width:100%;height:380px"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Start Footer -->
+ <include file="Common:footer"/>
+<!-- End Footer -->
+
+
+</div>
+
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="__PUBLIC__/Home/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/plugins.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/self.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/Highcharts/highcharts.js"></script>
+<script type="text/javascript">
+// Define tasks
+var tasks = [{name:"理论进度",intervals:[{from:Date.UTC(2016,02,24),to:Date.UTC(2016,04,15)}]},{name:"马文晶",intervals:[{from: Date.UTC(2016,02,28),to: Date.UTC(2016,02,28)},{from: Date.UTC(2016,03,01),to: Date.UTC(2016,03,01)},{from: Date.UTC(2016,03,06),to: Date.UTC(2016,03,07)},{from: Date.UTC(2016,03,09),to: Date.UTC(2016,03,09)},{from: Date.UTC(2016,03,11),to: Date.UTC(2016,03,11)},{from: Date.UTC(2016,03,13),to: Date.UTC(2016,03,14)}]},{name:"王晓翠",intervals:[{from: Date.UTC(2016,02,25),to: Date.UTC(2016,02,25)},{from: Date.UTC(2016,02,28),to: Date.UTC(2016,02,28)},{from: Date.UTC(2016,03,12),to: Date.UTC(2016,03,12)}]},{name:"阚自强",intervals:[{from: Date.UTC(2016,05,25),to: Date.UTC(2016,05,25)},{from: Date.UTC(2016,05,27),to: Date.UTC(2016,06,02)},{from: Date.UTC(2016,06,04),to: Date.UTC(2016,06,07)},{from: Date.UTC(2016,06,12),to: Date.UTC(2016,06,13)},{from: Date.UTC(2016,06,18),to: Date.UTC(2016,06,18)},{from: Date.UTC(2016,06,23),to: Date.UTC(2016,06,23)},{from: Date.UTC(2016,06,25),to: Date.UTC(2016,06,25)},{from: Date.UTC(2016,06,28),to: Date.UTC(2016,06,28)},{from: Date.UTC(2016,07,26),to: Date.UTC(2016,07,26)}]},{name:"杨新月",intervals:[{from: Date.UTC(2016,04,04),to: Date.UTC(2016,04,04)},{from: Date.UTC(2016,04,07),to: Date.UTC(2016,04,07)},{from: Date.UTC(2016,04,11),to: Date.UTC(2016,04,13)},{from: Date.UTC(2016,05,06),to: Date.UTC(2016,05,07)}]},{name:"刘柱",intervals:[{from: Date.UTC(2016,05,07),to: Date.UTC(2016,05,07)},{from: Date.UTC(2016,06,13),to: Date.UTC(2016,06,13)},{from: Date.UTC(2016,06,15),to: Date.UTC(2016,06,15)},{from: Date.UTC(2016,06,18),to: Date.UTC(2016,06,19)},{from: Date.UTC(2016,06,23),to: Date.UTC(2016,06,23)},{from: Date.UTC(2016,06,25),to: Date.UTC(2016,06,25)},{from: Date.UTC(2016,06,28),to: Date.UTC(2016,06,30)},{from: Date.UTC(2016,07,02),to: Date.UTC(2016,07,02)},{from: Date.UTC(2016,07,09),to: Date.UTC(2016,07,13)},{from: Date.UTC(2016,07,20),to: Date.UTC(2016,07,20)},{from: Date.UTC(2016,07,22),to: Date.UTC(2016,07,23)},{from: Date.UTC(2016,07,26),to: Date.UTC(2016,07,26)}]},{name:"苟萍萍",intervals:[{from: Date.UTC(2016,03,13),to: Date.UTC(2016,03,13)},{from: Date.UTC(2016,03,18),to: Date.UTC(2016,03,20)},{from: Date.UTC(2016,04,09),to: Date.UTC(2016,04,14)},{from: Date.UTC(2016,04,16),to: Date.UTC(2016,04,17)},{from: Date.UTC(2016,04,19),to: Date.UTC(2016,04,21)},{from: Date.UTC(2016,05,20),to: Date.UTC(2016,05,21)}]},{name:"孙晓萌",intervals:[{from: Date.UTC(2016,03,07),to: Date.UTC(2016,03,09)},{from: Date.UTC(2016,03,11),to: Date.UTC(2016,03,12)},{from: Date.UTC(2016,03,14),to: Date.UTC(2016,03,16)},{from: Date.UTC(2016,03,18),to: Date.UTC(2016,03,22)},{from: Date.UTC(2016,03,25),to: Date.UTC(2016,03,27)},{from: Date.UTC(2016,03,29),to: Date.UTC(2016,03,29)},{from: Date.UTC(2016,04,03),to: Date.UTC(2016,04,07)},{from: Date.UTC(2016,04,09),to: Date.UTC(2016,04,14)},{from: Date.UTC(2016,04,16),to: Date.UTC(2016,04,21)},{from: Date.UTC(2016,04,23),to: Date.UTC(2016,04,27)},{from: Date.UTC(2016,05,07),to: Date.UTC(2016,05,07)},{from: Date.UTC(2016,05,17),to: Date.UTC(2016,05,18)},{from: Date.UTC(2016,05,22),to: Date.UTC(2016,05,25)},{from: Date.UTC(2016,05,27),to: Date.UTC(2016,05,27)},{from: Date.UTC(2016,06,06),to: Date.UTC(2016,06,06)}]},{name:"刘磊",intervals:[{from: Date.UTC(2016,03,02),to: Date.UTC(2016,03,02)},{from: Date.UTC(2016,03,08),to: Date.UTC(2016,03,08)},{from: Date.UTC(2016,03,11),to: Date.UTC(2016,03,11)},{from: Date.UTC(2016,03,14),to: Date.UTC(2016,03,16)},{from: Date.UTC(2016,03,20),to: Date.UTC(2016,03,20)},{from: Date.UTC(2016,03,26),to: Date.UTC(2016,03,26)},{from: Date.UTC(2016,03,28),to: Date.UTC(2016,03,28)},{from: Date.UTC(2016,04,04),to: Date.UTC(2016,04,06)},{from: Date.UTC(2016,04,09),to: Date.UTC(2016,04,09)},{from: Date.UTC(2016,04,11),to: Date.UTC(2016,04,11)},{from: Date.UTC(2016,04,13),to: Date.UTC(2016,04,13)},{from: Date.UTC(2016,04,16),to: Date.UTC(2016,04,17)},{from: Date.UTC(2016,04,19),to: Date.UTC(2016,04,19)},{from: Date.UTC(2016,04,23),to: Date.UTC(2016,04,23)},{from: Date.UTC(2016,05,01),to: Date.UTC(2016,05,01)},{from: Date.UTC(2016,05,03),to: Date.UTC(2016,05,03)},{from: Date.UTC(2016,05,06),to: Date.UTC(2016,05,06)},{from: Date.UTC(2016,05,08),to: Date.UTC(2016,05,08)},{from: Date.UTC(2016,05,23),to: Date.UTC(2016,05,23)}]},{name:"郭一鸣",intervals:[{from: Date.UTC(2016,02,29),to: Date.UTC(2016,03,01)},{from: Date.UTC(2016,03,05),to: Date.UTC(2016,03,09)},{from: Date.UTC(2016,03,11),to: Date.UTC(2016,03,16)},{from: Date.UTC(2016,03,18),to: Date.UTC(2016,03,22)},{from: Date.UTC(2016,03,25),to: Date.UTC(2016,03,29)},{from: Date.UTC(2016,04,03),to: Date.UTC(2016,04,07)},{from: Date.UTC(2016,04,09),to: Date.UTC(2016,04,14)},{from: Date.UTC(2016,04,16),to: Date.UTC(2016,04,21)},{from: Date.UTC(2016,04,23),to: Date.UTC(2016,04,24)},{from: Date.UTC(2016,05,13),to: Date.UTC(2016,05,14)},{from: Date.UTC(2016,06,29),to: Date.UTC(2016,06,29)},{from: Date.UTC(2016,07,01),to: Date.UTC(2016,07,06)},{from: Date.UTC(2016,07,08),to: Date.UTC(2016,07,13)}]}]
+
+// re-structure the tasks into line seriesvar series = [];
+var series = [];
+$.each(tasks.reverse(), function(i, task) {
+    var item = {
+        name: task.name,
+        data: []
+    };
+    $.each(task.intervals, function(j, interval) {
+        item.data.push({
+            x: interval.from,
+            y: i,
+            label: interval.label,
+            from: interval.from,
+            to: interval.to
+        }, {
+            x: interval.to,
+            y: i,
+            from: interval.from,
+            to: interval.to
+        });
+        // add a null value between intervals
+        if (task.intervals[j + 1]) {
+            item.data.push(
+                    [(interval.to + task.intervals[j + 1].from) / 2, null]
+            );
+        }
+    });
+    series.push(item);
+});
+
+// create the chart
+var chart = new Highcharts.Chart({
+    chart: {
+        renderTo: 'gantt-container'
+    },
+    title: {
+        text: '【食品供应链】甘特图统计'
+    },
+    xAxis: {
+        type: 'datetime',
+        plotLines: [{
+            color: 'red',
+            width: 2,
+            value: Date.UTC(2016,07,29),
+            dashStyle:'longdashdot'
+        }],
+        labels: {
+            formatter: function () {
+                return Highcharts.dateFormat('%Y-%m-%d', this.value);
+            }
+        }
+    },
+    yAxis: {
+        tickInterval: 1,
+        labels: {
+            formatter: function() {
+                if (tasks[this.value]) {
+                    return tasks[this.value].name;
+                }
+            }
+        },
+        startOnTick: false,
+        endOnTick: false,
+        title: {
+            text: 'Activity'
+        },
+        minPadding: 0.2,
+        maxPadding: 0.2
+    },
+    legend: {
+        enabled: false
+    },
+    tooltip: {
+        formatter: function() {
+            return '<b>'+ tasks[this.y].name + '</b><br/>' +
+                    Highcharts.dateFormat('%Y/%m/%d', this.point.options.from)  +
+                    ' - ' + Highcharts.dateFormat('%Y/%m/%d', this.point.options.to);
+        }
+    },
+    plotOptions: {
+        line: {
+            //linecap:'square',
+            lineWidth: 9,
+            marker: {
+                enabled: false
+            },
+            dataLabels: {
+                enabled: true,
+                align: 'left',
+                formatter: function() {
+                    return this.point.options && this.point.options.label;
+                }
+            }
+        }
+    },
+    series: series
+});
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '【食品供应链】各个职位的日志占比'
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#09c',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '占总日志的',
+            data: [
+            {
+                name:'UI',
+                y:13,
+                color:'#ff6865'
+            },
+            {
+                name:'HTML',
+                y:25,
+                color:'#ffb518'
+            },
+            {
+                name:'PHP',
+                y:85,
+                color:'#32b8f7'
+            },
+            {
+                name:'Android',
+                y:24,
+                color:'#0ebe7e'
+            },
+            {
+                name:'IOS',
+                y:59,
+                color:'#e42ff0'
+            },]
+        }]
+    });
+});	
+$(function () { 
+    var colors = Highcharts.getOptions().colors,
+        categories = ['马文晶','孙晓萌','高铁映','王森',],
+        name = '提交日志人员',
+        data = [
+                {
+                    y: 16,
+                    color:'#ff6865'
+                }, 
+            
+                {
+                    y: 10,
+                    color:'#32b8f7'
+                }, 
+            
+                {
+                    y: 11,
+                    color:'#0ebe7e'
+                }, 
+            
+                {
+                    y: 18,
+                    color:'#e42ff0'
+                }, 
+        ];
+
+    function setChart(name, categories, data, color) {
+		chart.xAxis[0].setCategories(categories, false);
+		chart.series[0].remove(false);
+		chart.addSeries({
+			name: name,
+			data: data,
+			color: color || 'white'
+		}, false);
+		chart.redraw();
+    }
+
+    var chart = $('#container1').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '当前项目下每个人的日志占比统计图'
+        },
+        subtitle: {
+            text: 'Click the columns to view versions. Click again to view brands.'
+        },
+        xAxis: {
+            categories: categories
+        },
+        yAxis: {
+            title: {
+                text: 'Total percent log share'
+            }
+        },
+        plotOptions: {
+            column: {
+                cursor: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: colors[0],
+                    style: {
+                        fontWeight: 'bold'
+                    },
+                    formatter: function() {
+                        return this.y;
+                    }
+                }
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                var point = this.point,
+                    s = this.x +':<b>'+ this.y +'个日志</b><br/>';
+                return s;
+            }
+        },
+        series: [{
+            name: name,
+            data: data,
+            color: 'white'
+        }],
+        exporting: {
+            enabled: false
+        }
+    })
+    .highcharts(); // return chart
+});	
+
+
+/** 折线图 **/
+    $(function () {
+    $('#line-container').highcharts({
+        title: {
+            text: '项目参与人员进度曲线图',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: log.genduanzi.com',
+            x: -20
+        },
+        yAxis: {
+            title: {
+                text: '项目进度百分比(%)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{name: '马文晶',
+            data:[ 10,30,50,70,90,100,20,40,20,25,60,80,90,100,50,60,]},{name: '孙晓萌',
+            data:[ 1,2,3,4,5,6,7,8,9,10,60,80,90,100,50,60,]},{name: '高铁映',
+            data:[ 1,3,7,9,11,15,17,21,23,25,27,80,90,100,50,60,]},{name: '王森',
+            data:[ 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,]},]
+    });
+});
+</script>
+</body>
+</html>

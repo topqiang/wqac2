@@ -1,0 +1,84 @@
+<include file="Public:header"/>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/lang/zh_CN.js"></script>
+<!--主页面-->
+<div id="main-content" class="content">
+    <div class="content-box">
+
+        <ul class="breadcrumb">
+            <li><a href="/">首页</a></li>
+            <li><a href="">需求类别管理</a></li>
+            <li class="active">添加需求类别</li>
+        </ul>
+        <div class="page-header clearfix">
+            <h3>需求类别管理</h3>
+            <ul class="nav nav-tabs">    
+                <li>
+                    <a href="{:U('RequireType/selectRequireType')}">需求类别列表</a>
+                </li>
+                <li class="active">
+                    <a href="{:U('RequireType/addRequireType')}">添加需求类别</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--表格内容-->
+        <div class="content-box-content">
+            <!--表单 start-->
+            <form action="{:U('RequireType/saveRequireType')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="type_name" class="col-sm-3 control-label">类别名称：</label>
+                    <div class="col-sm-9">
+                      <input type="text" value="{$type_info['type_name']}" class="form-control" id="type_name" name="type_name" placeholder="类别名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type_note" class="col-sm-3 control-label">注意事项：</label>
+                    <div class="col-sm-9">
+                        <textarea name="type_note" id="type_note" style="width:750px;visibility:hidden;">{$type_info['type_note']}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type_case" class="col-sm-3 control-label">类别案例：</label>
+                    <div class="col-sm-9">
+                        <textarea name="type_case" id="type_case" style="width:750px;visibility:hidden;">{$type_info['type_case']}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <input name="re_type_id" type="hidden" value="{$type_info['re_type_id']}"/>
+                      <button type="submit" class="btn btn-default btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+            <!--表单 end-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        KindEditor.ready(function(K){
+            window.editor = K.create('#type_case,#type_note',{
+                items:[
+                    'source', '|', 'undo', 'redo', '|','indent','outdent', 'cut', 'copy','|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'clearhtml', 'selectall', '|', 'formatblock', 'fontname', 'fontsize', '|', 'forecolor',
+                    'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough','image','link'
+                ],
+                afterBlur:function(){this.sync();}
+            });
+        });
+        $("#m_type1").click(function(){
+            $(".position").show();
+        });
+        $("#m_type2").click(function(){
+            $(".position").hide();
+        });
+        $("#m_type3").click(function(){
+            $(".position").hide();
+        });
+        function face_hide(){
+            document.getElementById('facebox').style.display = 'none';
+        }
+    });
+</script>
+<include file="Public:footer"/>

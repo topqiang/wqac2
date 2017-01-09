@@ -1,0 +1,64 @@
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {margin:0;padding:0;}
+body{ font-family:"Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif; color:#333}
+ol,ul{list-style:none;}
+img{border:none;vertical-align: top}
+i{font-style:normal;}
+input{font-size:12px; border: 0; outline:none; resize:none;}
+textarea{ outline:none}
+a{text-decoration:none; color: #333;-webkit-transition: background-color .15s linear, color .15s linear;-moz-transition: background-color .15s linear, color .15s linear; transition: background-color .15s linear, color .15s linear}
+.clear{clear:both;height:0;line-height:0;font-size:0;overflow:hidden;}
+.clearfix{*zoom:1} .clearfix:after{content:"\20";clear:both;height:0;display:block;overflow:hidden}
+label{display:inline-block; font-weight:700}
+.fr{float:right;}
+.fl{float: left;}
+/*BSS*/
+
+.bbs{width:100%; background: #34495e}
+.bbs .am-g{padding: 40px 0;}
+.project-list{width: 160px; float: left;}
+.projectb {background: #1c1f20; margin-bottom: 10px;}
+.projectb h1{ position:relative;width: 130px; height: 40px; padding-left: 30px; font-size:12px;line-height: 40px;  color: #fff; cursor: pointer}
+.projectb h1 i.dian{display: block; width: 7px; height: 7px; background: url(../images/bss/bss_dian1.png) no-repeat; position: absolute; left: 15px; top:17px;}
+.projectb h1 i.on{background: url(../images/bss/bss_dian.png) no-repeat}
+.projectb h1 i.line{width: 1px; height: 16px; background: #777; position: absolute; left: 18px; top:24px; display: none;}
+.projectb .sub-bug{ display: block; background: #ff8f8d; width: 160px; height: 40px; line-height: 40px; text-align: center; font-size: 16px; color: #fff}
+.projectb a.sub-bug:hover{background: #1c1f20}
+.projectb .num{font-size: 12px; color: red}
+.projectb .bug-list{padding-left:18px; display: none;}
+.projectb .bug-list ul{border-left:1px solid #777;}
+.projectb .current{display: block; color:#ff8f8d }
+.projectb .bug-list li{padding-left: 40px; position: relative;}
+.projectb .bug-list li i.dian{display: block; width: 7px; height: 7px; background: url(../images/bss/bss_dian1.png) no-repeat; position: absolute; left: 26px; top:11px;}
+.projectb .bug-list li i.on{background: url(../images/bss/bss_dian.png) no-repeat}
+.projectb .bug-list li i.iw{width: 26px; height: 1px; background: #777; position: absolute; top: 14px; left: 0}
+.projectb .bug-list li a,.projectb .bug-list li span{display:block; height:28px; line-height:28px; font-size: 12px; color: #fff; cursor:pointer;}
+.projectb .bug-list li .bug-list-m{margin-left: -20px; display: none; border: 0}
+.projectb .bug-list li .bug-list-m.on{display: block;}
+.projectb .bug-list li .bug-list-m li{padding-left:20px; height: 24px; line-height: 24px}
+.projectb .bug-list li .bug-list-m a{color: #777}
+.projectb .bug-list li .bug-list-m a:hover{color: #ff8f8d}
+.projectb .bug-list1{padding-left: 50px;}
+.projectb .bug-list1 li{height: 26px; line-height: 26px;}
+.projectb .bug-list1 li a{color:#fff;}
+.project-c {width: 830px; float: left; background: #fff; overflow: hidden; position: relative;}
+.project-c .project-content{ height: 1200px; padding:10px 20px 20px 20px; border: 1px solid #000; line-height: 24px; position: relative;}
+.project-c .project-content p img{max-width: 790px; height: auto;}
+.project-c .project-content .select{margin-bottom: 10px;}
+.bug-target{position: absolute; right: 10px; top: 0; color: #fff}
+.project-c .addBug{ padding-bottom: 40px; overflow: hidden;}
+.project-c .bugBtn{position: absolute; right: 20px; top: 20px}
+.addbug-btn{ margin-top: 20px; overflow: hidden;}
+.addbug-btn input,input.bugBtn {width: 90px; height: 36px; background: #ff8f8d; color: #fff; line-height: 36px; font-size: 12px; text-align: center; cursor: pointer}
+.addbug-btn input:hover,input.bugBtn:hover{background: #000; color: #fff;}
+
+/*.selected{margin: 20px 0; text-align: center; overflow: hidden;}
+.selected span{width: 90px; margin-right: 10px; float: left; display: block; height: 24px; line-height: 24px; font-size:12px;  padding: 1px; border:1px solid #ddd; position: relative;}
+.selected span.title{background: #000; color: #fff}
+.selected span.op{cursor: pointer}
+.selected span.active{padding:0; border: 2px solid #e4393c}
+.selected span.active b{position: absolute; bottom: 0; right: 0; width: 13px; height: 12px; overflow: hidden; background: url(../images/b.png);}
+.selected span:hover.op{padding:0; border: 2px solid #e4393c}*/
+.add-bbs{padding: 0 0 40px 0;}
+.addbug-btn input:hover,.bugBtn input:hover{-webkit-transition: background-color .15s linear, color .15s linear;-moz-transition: background-color .15s linear, color .15s linear; transition: background-color .15s linear, color .15s linear}
+

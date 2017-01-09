@@ -1,0 +1,98 @@
+<include file="Public:header"/>
+<link rel="stylesheet" href="__WEBPUBLIC__/Uploadify/uploadify.css" type="text/css" />
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/lang/zh_CN.js"></script>
+<!--时间-->
+<script type="text/javascript" src="__WEBPUBLIC__/Common/DatePicker/lhgcore.js"></script>
+<script type="text/javascript" src="__WEBPUBLIC__/Common/DatePicker/lhgcalendar.js"></script>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">作品管理</a></li>
+        <li class="active">添加作品</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>作品管理</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('Project/selectProject')}">作品列表</a>
+            </li>
+            <li class="active">
+                <a href="{:U('Project/addProject')}">添加作品</a>
+            </li>
+        </ul>
+    </div>
+   
+        <!--表格内容-->
+    <div class="content-box-content">
+        <form action="{:U('Project/addProject')}" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="p_name" class="col-sm-3 control-label">作品名称：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="p_name" name="p_name" style="width: 50%;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="p_info" class="col-sm-3 control-label">作品简述：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="p_info" name="p_info">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="p_type" class="col-sm-3 control-label">作品分类：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="p_type" name="p_type" style="width: 40%;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="p_link" class="col-sm-3 control-label">作品构成：</label>
+                <div class="col-sm-9">
+                    <div class="checkbox">
+                    <volist name="constitute" id="vo">
+                        <input type="checkbox" name="c_ids[]" value="{$key}"/>&nbsp;{$vo}&nbsp;&nbsp;
+                    </volist>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-3 control-label">排序：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="sort_order" name="sort_order" style="width: 20%;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="p_link" class="col-sm-3 control-label">链接地址：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="p_link" name="p_link">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="p_logo" class="col-sm-3 control-label">作品缩略图：</label>
+                <div class="col-sm-9">
+                    <input type="file" id="p_logo" name="p_logo">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="p_link" class="col-sm-3 control-label">作品详细图：</label>
+                <div class="col-sm-9">
+                    <input type="file" name="p_pics[]">
+                    <input type="file" name="p_pics[]">
+                    <input type="file" name="p_pics[]">
+                    <input type="file" name="p_pics[]">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<include file="Public:footer"/>

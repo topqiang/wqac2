@@ -1,0 +1,196 @@
+<link rel="stylesheet" type="text/css" href="__WEBPUBLIC__/Home/css/bss.css"/>
+<script src="__WEBPUBLIC__/Home/js/jquery.min.js"></script>
+	<div class="bug clearfix">
+		<div class="project-list" style="width: 240px;">
+		<!--<if condition="(cookie('M_TYPE') eq 2)">
+			<div class="projectb">
+				<a href="{:U('Bss/addBug')}/p_id/{$pid}" target="_blank" class="sub-bug">提交BUG</a>
+			</div>
+		</if>
+		<volist name="project_list" id="vo">
+			<div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>{$vo.p_name}<em class="num"><if condition="$vo['pro_is_show'] eq 0">【无】<else />【{$vo.pro_is_show}】</if></em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+						<volist name="vo.new_con_arr" id="voo">
+							<li><i class="dian"></i><i class="iw"></i>
+								<a href="{:U('Bss/main',array('p_id'=>$vo['p_id'],'b_tem_id'=>$voo['new_con_id']))}" target="main">
+									<span>{$voo.new_con_name}<em class="num"><if condition="$voo['bug_num'] eq 0"><else />【{$voo.bug_num}】</if></em></span>
+								</a>
+							</li>
+						</volist>
+					</ul>
+				</div>
+			</div>
+		</volist>-->
+		<div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>淘米公社<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>用户Wap端<em class="num"></em></span>
+							</a>
+						</li>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>用户Android手机端<em class="num"></em></span>
+							</a>
+						</li>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>用户IOS手机端<em class="num"></em></span>
+							</a>
+						</li>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>商家管理后台WebPC端<em class="num"></em></span>
+							</a>
+						</li>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>商家Android手机端<em class="num"></em></span>
+							</a>
+						</li>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>商家IOS手机端<em class="num"></em></span>
+							</a>
+						</li>
+						<li>
+							<i class="dian"></i><i class="iw"></i>
+							<a href="combug.html">
+								<span>总后台管理WebPC端<em class="num"></em></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>蔬果果<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>心生活<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>同城易购<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>大城外卖<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>食品供应链<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>海猿网<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div><div class="projectb">
+				<h1>
+					<i class="dian"></i>
+					<i class="line"></i>
+					<span>错题周星星<em class="num">【无】</em></span>
+				</h1>
+				<div class="bug-list">
+					<ul>
+											</ul>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+
+<script>
+$(function(){
+	var tit = $('.projectb h1');
+	tit.click(function(){
+		var $this = $(this)
+		var _this = $(this).next();
+		if($this.find('.dian').hasClass('on')){
+			$this.find('.dian').removeClass('on');
+		}else{
+			$this.parents().siblings().find('.dian').removeClass('on');
+			$this.find('.dian').addClass('on').parents().siblings().find('.dian').removeClass('on');
+		}
+		if(_this.hasClass('current')){
+			_this.removeClass('current');
+			$this.find('.line').hide();
+		}else{
+			$this.parents().find('.bug-list').removeClass('current');
+			$this.find('.line').hide().parents().siblings().find('.line').hide();
+			_this.addClass('current');
+			$this.find('.line').show();
+		}
+	});
+	$('.bug-list li span').click(function(){
+		var $this = $(this)
+		var _this = $(this).next();
+		if($this.siblings('.dian').hasClass('on')){
+			$this.siblings('.dian').removeClass('on');
+		}else{
+			$this.siblings('.dian').addClass('on');
+		}
+		if(_this.hasClass('on')){
+			_this.removeClass('on');
+		}else{
+			$this.parent().siblings().find('.dian').removeClass('on');
+			$this.parent().siblings().find('.bug-list-m').removeClass('on');
+			_this.addClass('on');
+		}
+	});
+});
+</script>

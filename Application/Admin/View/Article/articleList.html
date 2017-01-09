@@ -1,0 +1,159 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/ajax-operate.js"></script>
+<!--主页面-->
+<div id="main-content" class="content">
+
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">文章管理</a></li>
+        <li class="active">文章列表</li>
+    </ul>
+
+    <div class="page-header page-header1 clearfix">
+        <h3>文章管理</h3>
+        <ul class="nav nav-tabs">    
+            <li class="active">
+                <a href="{:U('Article/ArticleList')}">文章列表</a>
+            </li>
+            <li>
+                <a href="{:U('Article/addArticle')}">添加文章</a>
+            </li>
+        </ul>
+    </div>
+    <div class="search-content">
+        <form action="{:U('Article/articleList')}" method="post"class="search-form form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="title">请输入文章标题</label>
+                <input class="earch-input form-control" id="title" type="text" name="title" value="{$request['title']}" placeholder="请输入文章标题"/>　
+            </div>
+            <button type="submit" class="btn derive">查询</button>　
+        </form>
+    </div>
+    <include file="Public:notification"/>
+       
+    <div class="content-box-content">
+
+        <form action="{:U('Article/deleteArticle')}" method="post" class="batch-form">
+            <table class="table table-striped table-framed table-hover">
+                <!--标题 start-->
+                <thead>
+                <tr>
+                    <th width="4%">
+                        <input class="check-all" type="checkbox" />
+                    </th>
+                    <th width="10%">添加时间</th>
+                    <th>编号</th>
+                    <th>标题</th>
+                    <th>分类</th>
+                    <th>排序</th>
+                    <th>浏览量</th>
+                    <th>是否公开</th>
+                    <th>作者</th>
+                    <th width="10%">操作</th>
+                </tr>
+                </thead>
+                <!--标题 end-->
+
+                <!--内容 start-->
+                <tbody class="tbody">
+                <if condition="empty($article_list)">
+                    <tr><td colspan="10"><span style="font-size:14px;">暂无数据</span></td></tr>
+                </if>
+                <volist name="article_list" id="article">
+                    <tr>
+                        <td>
+                            <if condition="!in_array($article['cate_id'],$prohibit)">
+                            <input type="checkbox" name="article_id[]" value="{$article['article_id']}"/>
+                            </if>
+                        </td>
+                        <td>{$article['ctime']|date='Y-m-d',###}</td>
+                        <td>{$article['article_id']}</td>
+                        <td>
+                            <if condition="$article['exist_pic'] eq 1">
+                            <span class="icon glyphicon glyphicon-picture" title="图文资讯"></span>
+                            </if>
+                            <a href="" class="underline">{$article['title']}</a>
+                        </td>
+                        <!--<td>{$article['article_type']}</td>-->
+                        <td>{$article['cate_name']}</td>
+                        <td>
+                            <input type="text" value="{$article['sort_order']}" class="sort_order only-num" title="点击填写，再点击其他地方自动修改">
+                            <input type="hidden" value="{$article['article_id']}">
+                        </td>
+                        <td>{$article['click']}</td>
+                        <td>
+                            <span class="icon glyphicon glyphicon-ok is-show-operate txt-grren" title="公开" <if condition="$article['is_open'] eq 0">style="display:none;"</if>></span>
+                            <input type="hidden" value="{:U('Article/isShowOperate')}||{$article['article_id']}||1">
+                            <span class="icon glyphicon glyphicon-remove is-show-operate txt-red" title="未公开" <if condition="$article['is_open'] eq 1">style="display:none;"</if>></span>
+                            <input type="hidden" value="{:U('Article/isShowOperate')}||{$article['article_id']}||0">
+                        </td>
+                        <td>{$article['author']}</td>
+                        <td>
+                            <a href="{:U('Article/editArticle',array('article_id'=>$article['article_id']))}" title="编辑" class="modify">
+                                <span class="icon glyphicon glyphicon-pencil"></span>
+                            </a>&nbsp;
+                            <if condition="!in_array($article['cate_id'],$prohibit)">
+                            <a href="#" title="删除" class="delete-delete">
+                                <span class="icon glyphicon glyphicon-remove"></span>
+                            </a><input type="hidden" value="{:U('Article/deleteArticle',array('article_id'=>$article['article_id']))}">
+                            </if>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <!--内容 end-->
+                <!--表尾 start-->
+                <tfoot>
+                <tr>
+                    <td colspan="20">
+                        <div class="bulk-actions fl">
+                            <input type="button" class="btn delete-batch" value="批量删除">
+                        </div>
+                        <div class="fr">
+                            {$page}
+                        </div>
+                    </td>
+                </tr>
+                </tfoot>
+                <!--表尾 end-->
+            </table>
+        </form>
+    </div>
+</div>
+
+<!--主页面 end-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        //修改排序
+        $('.sort_order').blur(function(){
+            var id = $(this).next('input').val();
+            var sort = $(this).val();
+            ajaxEditSort('{:U("Article/editSort")}',id,sort);
+        });
+        //点击批量移动
+        $('.move-batch').click(function(){
+            $(this).next('span').show();
+        });
+        //点击确认移动
+        $('.sure-move').click(function(){
+            var str = '';
+            $(".tbody input[type='checkbox']:checked").each(function(key,obj){
+                str = str + obj.value;
+            });
+            if(str == ''){
+                showNotification('error','您未选择操作对象');
+            }else if($(".article-move select[name='cate_id']").val() == 0){
+                showNotification('error','您未选择目标分类');
+            }else{
+                $('.batch-form').attr('action',"{:U('Article/moveArtBatch')}");
+                $('.batch-form').submit();
+            }
+        });
+        //分类是否允许操作
+        $(".article-move select[name='cate_id']").change(function(){
+            var cate_id = $(this).val();
+            ajaxJudge('{:U("Article/ajaxJudge")}',cate_id,0,this);
+        });
+    });
+</script>
+<include file="Public:footer"/>

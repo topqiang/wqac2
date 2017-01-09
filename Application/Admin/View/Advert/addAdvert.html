@@ -1,0 +1,101 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">系统设置</a></li>
+        <li class="active">广告设置</li>
+        <li class="active">添加广告</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>广告设置</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('Advert/advertList')}">广告列表</a>
+            </li>
+            <li class="active">
+                <a href="{:U('Advert/addAdvert')}">添加广告</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-box-content">
+        <form action="{:U('Advert/addAdvert')}" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="ad_desc" class="col-sm-3 control-label">广告描述：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ad_desc" name="ad_desc">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ad_url" class="col-sm-3 control-label">广告链接：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ad_url" name="ad_url">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-3 control-label">排　　序：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="sort_order" name="sort_order" value="0"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">广告位置：</label>
+                <div class="col-sm-9">
+                    <select name="ad_position" class="form-control input-sm">
+                        <option value="">--选择广告位置--</option>
+                        <volist name="ad_position" id="position">
+                            <option value="{$key}">{$position}</option>
+                        </volist>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所属板块：</label>
+                <div class="col-sm-9">
+                    <select name="ad_plate" class="form-control input-sm">
+                        <option value="">--选择所属版块--</option>
+                        <option value="1">版块一</option>
+                        <option value="2">版块二</option>
+                    </select>　
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">广告图片：</label>
+                <div class="col-sm-9">
+                    <div id="ad_logo">
+                        <div class="ad_pic">
+                            <img src="__ROOT__/Uploads/pLogo/default.gif" id="upImg" />
+                            <input type="hidden" id="ad_pic"  name="ad_pic"/>
+                        </div>
+                        <input id="ad_upload" type="file" multiple="true" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src='__PUBLIC__/Uploadify/jquery.uploadify.min.js'></script>
+<script>
+    var img = '';
+    $('#ad_upload').uploadify({
+        swf : '__PUBLIC__/Uploadify/uploadify.swf',  //引入Uploadify核心Flash文件
+        uploader : '{:U("AdminBasic/upload")}',   //PHP处理脚本地址
+        width : 128,    //上传按钮宽度
+        height : 30,    //上传按钮高度
+        buttonImage : '__PUBLIC__/Common/images/uplogo.png', //上传按钮背景图地址
+        fileTypeDesc : 'Image File',    //选择文件提示文字
+        fileTypeExts : '*.jpeg; *.jpg; *.png; *.gif',   //允许选择的文件类型
+        'onUploadSuccess' : function(file, data, response) {
+          $('#upImg').attr('src','__ROOT__/Uploads/pLogo/{$time|tiem_ym=###}/'+data); 
+          $('#ad_pic').val('{$time|tiem_ym=###}/'+data);
+      }
+    });
+</script>
+<include file="Public:footer"/>

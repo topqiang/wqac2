@@ -1,0 +1,49 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">管理员</a></li>
+        <li class="active">添加管理员组</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>管理员</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('AdminGroup/groupList')}">管理员组列表</a>
+            </li>
+            <li class="active">
+                <a href="{:U('AdminGroup/addGroup')}">添加管理员组</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-box-content">
+
+        <form action="{:U('AdminGroup/addGroup')}" method="post" class="form-horizontal admin-group" role="form">
+            <div class="form-group">
+                <label for="group_name" class="col-sm-1 control-label">组名：</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control group-name" id="group_name" name="group_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="group_name" class="col-sm-1 control-label">权限：</label>
+                <div class="col-sm-11">
+                    <volist name="action_list" id="action">
+                        <div class="fl" style="width:180px;padding:5px;">
+                            <input type="checkbox" value="{$action['action_id']}" name="permission[]"/>&nbsp;{$action['action_name']}
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-9">
+                  <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--主页面 end-->
+<include file="Public:footer"/>

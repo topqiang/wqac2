@@ -1,0 +1,70 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/common.js"></script>
+<!--主页面-->
+<div id="main-content">
+    <!-- 当前位置 start-->
+    <div id="now-address">
+        <span>当前位置：首页&gt;&gt;会员管理&gt;&gt;批量修改积分</span>
+    </div>
+    <!-- 当前位置 end-->
+    <div class="content-box">
+        <!--头部切换 start-->
+        <div class="content-box-header">
+            <h3>会员管理</h3>
+            <ul class="content-box-tabs">
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <!--头部切换 end-->
+        <!--表格内容-->
+        <div class="content-box-content">
+            <!--表单 start-->
+            <div class="tab-content default-tab form" id="tab2">
+                <form action="{:U('Member/doEditScoreBatch')}" method="post" class="form-form">
+                    <fieldset>
+                        <p>
+                            <volist name="mem_list" id="mem">
+                                <div class='edit-score-target' style="padding:15px 30px;float:left;margin-right:20px;margin-top:20px;background:#7BBA01;color:#fff;position: relative">
+                                    {$mem['m_nickname']}<input type="hidden" name="m_id[]" value="{$mem['m_id']}">
+                                    <img src="__WEBPUBLIC__/Admin/images/icons/remove.png" style="position:absolute;top:-4px;right:-4px;cursor:pointer;">
+                                </div>
+                            </volist>
+                            <div class="clear"></div>
+                        </p>
+                        <p></p>
+                        <p>
+                            <span class="label">积分变量：</span>
+                            <input class="text-input small-input" type="text" name="change_measure" value="0"/>
+                        </p>
+                        <p>
+                            <span class="label">修改规则：</span>
+                            <select name="change_rule" class="text-input">
+                                <option value="0">--选择修改规则--</option>
+                                <option value="1">-</option>
+                                <option value="2">+</option>
+                            </select>　*　
+                        </p>
+                        <p>
+                            <span class="label">修改原因：</span>
+                            <input class="text-input medium-input change-cause" type="text" name="change_cause" />
+                        </p>
+                        <p>
+                            <input class="button" type="submit" value="确认修改" />
+                        </p>
+                    </fieldset>
+                    <div class="clear"></div>
+                </form>
+            </div>
+            <!--表单 end-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //批量修改积分
+        $('.edit-score-target img').click(function(){
+            $(this).parent().remove();
+        });
+    });
+</script>
+<include file="Public:footer"/>

@@ -1,0 +1,161 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kode is a Premium Bootstrap Admin Template, It's responsive, clean coded and mobile friendly">
+    <meta name="keywords" content="bootstrap, admin, dashboard, flat admin template, responsive," />
+    <title>WQAC 2.0</title>
+
+    <!-- ========== Css Files ========== -->
+    <link href="__PUBLIC__/Home/css/root.css" rel="stylesheet">
+	<link href="__PUBLIC__/Home/css/self.css" rel="stylesheet">
+	
+</head>
+<body>
+<!-- Start Page Loading -->
+
+<div class="loading" style="display: flex;justify-content: center;align-items: center;">
+	<!--<img src="__PUBLIC__/Home/img/loading.gif" alt="loading-img">-->
+	<style>
+	/*.loadout{
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.6);
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+	}*/
+	.loadin{
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		position: relative;
+		
+	}
+	.rotate{
+		animation: rotateback 3s infinite;
+		width: 100px;
+		height: 100px;
+		overflow: hidden;
+	}
+	.arcbg{
+		border-width: 50px;
+		border-style: solid;
+		border-bottom-color: green;
+		border-top-color: yellow;
+		border-left-color: red;
+		border-right-color: blue;
+		position: absolute;
+		height: 0px;
+		line-height: 0px;
+		top: 0px;
+		left: 0px;
+	}
+	@keyframes rotateback{
+		0%{transform: rotate(0deg);}
+		100%{transform: rotate(3360deg);}
+	}
+	.arctent{
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		background: white;
+		overflow: hidden;
+	}
+	.arctent img{
+		width: 80px;
+		height: 80px;
+	}
+	.content{
+		margin-left: 0px;
+	}
+</style>
+<!--<div class="loadout">-->
+	<!--旋转loadding效果-->
+	<div class="loadin" >
+	<!--<div class="rotate">
+			<div class="arcbg"></div>
+		</div>-->
+		<div class="arctent">
+			<!--<img src="__PUBLIC__/Home/img/logo.png"/>-->
+			<img src="__PUBLIC__/Home/img/loader.gif"/>
+		</div>
+	</div>
+	<div style="color: #fff;">数据加载中。。。</div>
+<!--</div>-->
+
+</div>
+<!-- End Page Loading -->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- START TOP -->
+<div id="top" class="clearfix">
+
+    <!-- Start App Logo -->
+    <div class="applogo">
+        <a href="{:U('Index/index')}" class="logo">WQAC 2.0</a>
+    </div>
+    <!-- End App Logo -->
+
+    <!-- Start Sidebar Show Hide Button -->
+    <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+    <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+    <!-- End Sidebar Show Hide Button -->
+
+    <!-- Start Searchbox -->
+    <form class="searchform">
+        <input type="text" class="searchbox" id="searchbox" placeholder="Search">
+        <span class="searchbutton"><i class="fa fa-search"></i></span>
+    </form>
+    <!-- End Searchbox -->
+
+    <!-- Start Top Menu -->
+    <ul class="topmenu">
+        <li><a href="../Index/adduser.html"><span class="icon color9"><i class="fa fa-graduation-cap f-size-16"></i></span></a></li>
+        <li><a href="../Index/adduser.html"><span class="icon color12"><i class="fa fa-group f-size-16"></i></span></a></li>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="icon color4"><i class="fa fa-adjust f-size-16"></i></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="addpro.html">项目录入</a></li>
+				<li><a href="#">项目考评</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!-- End Top Menu -->
+
+
+
+
+    <!-- Start Top Right -->
+    <ul class="top-right">
+
+
+
+
+        <li class="link">
+            <a href="#" class="notifications">6</a>
+        </li>
+
+        <li class="dropdown link">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="__PUBLIC__/Home/img/profileimg.png" alt="img"><b>Jonathan Doe</b><span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
+                <li role="presentation" class="dropdown-header">Profile</li>
+                <li><a href="#"><i class="fa falist fa-inbox"></i>Inbox<span class="badge label-danger">4</span></a></li>
+                <li><a href="#"><i class="fa falist fa-file-o"></i>Files</a></li>
+                <li><a href="#"><i class="fa falist fa-wrench"></i>Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="fa falist fa-lock"></i> Lockscreen</a></li>
+                <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <!-- End Top Right -->
+
+</div>
+<!-- END TOP -->

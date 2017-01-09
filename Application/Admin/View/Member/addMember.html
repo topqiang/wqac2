@@ -1,0 +1,105 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content" class="content">
+    <div class="content-box">
+
+        <ul class="breadcrumb">
+            <li><a href="/">首页</a></li>
+            <li><a href="">会员管理</a></li>
+            <li class="active">添加会员</li>
+        </ul>
+        <div class="page-header clearfix">
+            <h3>会员管理</h3>
+            <ul class="nav nav-tabs">    
+                <li>
+                    <a href="{:U('Member/memberList')}">会员列表</a>
+                </li>
+                <li class="active">
+                    <a href="{:U('Member/addMember')}">添加会员</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--表格内容-->
+        <div class="content-box-content">
+            <!--表单 start-->
+            <form action="{:U('Member/addMember')}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="m_account" class="col-sm-3 control-label">账　　号：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="m_account" name="m_account" placeholder="账号">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="m_password" class="col-sm-3 control-label">密　　码：</label>
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="m_password" name="m_password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="re_m_password" class="col-sm-3 control-label">确认密码：</label>
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="re_m_password" name="re_m_password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="m_nickname" class="col-sm-3 control-label">姓　　名：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="m_nickname" name="m_nickname">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">会员类型：</label>
+                    <div class="col-sm-9">
+                      <div class="checkbox">
+                        <label for="m_type2">
+                          <input type="radio" name="m_type" value="2" id="m_type2" checked/>&nbsp;项目客户
+                        </label>
+                        <label for="m_type1">
+                        <input type="radio" name="m_type" value="1" id="m_type1"/>&nbsp;技术人员
+                        </label>
+                          <label for="m_type3">
+                              <input type="radio" name="m_type" value="3" id="m_type3"/>&nbsp;交易顾问
+                          </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group position" style="display: none;">
+                    <label class="col-sm-3 control-label">所属职位：</label>
+                    <div class="col-sm-9">
+                      <div class="checkbox">
+                        <volist name="position" id="position">
+                        <label for="r_{$key}">
+                            <input type="radio" name="z_id" value="{$key}" id="r_{$key}" />&nbsp;{$position}&nbsp;&nbsp;
+                        </label>
+                        </volist>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button type="submit" class="btn btn-default btn-primary">确认添加</button>
+                    </div>
+                  </div>
+            </form>
+            <!--表单 end-->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#m_type1").click(function(){
+            $(".position").show();
+        });
+        $("#m_type2").click(function(){
+            $(".position").hide();
+        });
+        $("#m_type3").click(function(){
+            $(".position").hide();
+        });
+        function face_hide(){
+            document.getElementById('facebox').style.display = 'none';
+        }
+    });
+</script>
+<include file="Public:footer"/>

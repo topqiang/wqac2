@@ -1,0 +1,95 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/common.js"></script>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/ajax-operate.js"></script>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/lang/zh_CN.js"></script>
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">需求管理</a></li>
+        <li class="active">需求列表</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>需求管理</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('Requirement/RequirementList')}">需求列表</a>
+            </li>
+        </ul>
+    </div>
+	<div class="requirement">
+		<form method="post" action="{:U('saveRequirement')}" name="">
+			<div class="textareaBox">
+				<label for="reName" class="lab">项目名称</label>
+				<input type="input" name="reName" id="reName" class="reName" value="{$requirement_info.re_name}" />
+			</div>
+			<div class="textareaBox">
+				<div class="tit"><h1><i></i><span>项目需求内容<span></h1></div>
+				<p class="pp">（请尽量详细的说明此项目用途，使用场景，使用环境等，以方便我们更充分的了解项目需求）</p>
+				<textarea class="re-content" name="reContent">{$requirement_info.re_content}</textarea>
+			</div>
+			<div class="textareaBox">
+				<div class="tit"><h1><i></i><span>项目功能模块</span></h1></div>
+				<p class="pp">（请说明项目都有哪些功能模板或者都有哪些频道。）</p>
+				<textarea class="re-model" name="reModel">{$requirement_info.re_model}</textarea>
+			</div>
+			<div class="textareaBox">
+				<div class="tit"><h1><i></i><span>项目功能模块详细描述<span></h1></div>
+				<p class="pp">（主要针对上面的功能模块进行详细说明，以方便我们更准确的判断有哪些细节功能。）</p>
+				<textarea name="reDesc" id="re-content" style="width:998px;height:450px;visibility:hidden;">{$requirement_info.re_desc}</textarea>
+			</div>
+			<div class="textareaBox other">
+				<div class="tit"><h1>其他信息</h1></div>
+				<p class="blod">项目需要的平台：</p>
+				<div class="app">
+				<volist name="constitute" id="vo">
+		            <p>
+		            <input type="checkbox" value="{$key}" name="reIds[]" id="reIds{$key}"
+		            	<volist name="requirement_info['re_ids_name']" id="voo" key="kk">
+		            	<eq name="i" value="$voo">checked="checked"</eq></volist>  />{$vo}
+		            </p>
+		        </volist>
+		        </div>
+		        <p class="blod">参考网站或参考APP：</p>
+		        <div class="text"><textarea class="re-coment" name="reReference">{$requirement_info.re_reference}</textarea></div>
+		        <p class="blod">项目开发周期：</p>
+		        <div class="time">
+			        <input type="text" value="{$requirement_info.re_app_time}" name="appTime" class="app-time" />
+		        </div>
+		        <p class="blod">QQ：</p>
+		        <input type="input" name="reQq" class="qq" value="{$requirement_info.re_qq}" />
+			</div>
+			<div class="textareaBox">
+				<div class="tit"><h1><span>评语<span></h1></div>
+				<p class="pp">评价项目</p>
+				<textarea name="reComment">{$requirement_info.re_comment}</textarea>
+			</div>
+			<div class="color">
+			<input type="radio" value="1" name="color"<eq name="requirement_info['color']" value="1">checked</eq>/>可以做，
+			<input type="radio" value="2" name="color"<eq name="requirement_info['color']" value="2">checked</eq>/>可以做，比较麻烦，
+			<input type="radio" value="3" name="color"<eq name="requirement_info['color']" value="3">checked</eq>>不可以做
+			</div>
+			<div class="btn">
+				<input name="re_id" type="hidden" value="{$_GET['re_id']}"/>
+				<input type="submit" name="sub" class="sub" value="修改需求" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        KindEditor.ready(function(K){
+            window.editor = K.create('#re-content',{
+                items:[
+                    'source', '|', 'undo', 'redo', '|', 'cut', 'copy','|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'clearhtml', 'selectall', '|', 'formatblock', 'fontname', 'fontsize', '|', 'forecolor',
+                    'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough','image'
+                ],
+                afterBlur:function(){this.sync();}
+            });
+        });
+    });
+</script>
+<include file="Public:footer"/>

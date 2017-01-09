@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/xq2.css"/>
+<style type="text/css">
+	.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+	  width: 100%;
+	}
+	.testmethod .col-sm-3,.col-sm-3 .col-sm-3{
+		text-align: right;
+	}
+</style>
+<include file="Common:left"/>
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content">
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+ <div class="box-cen margin-b-20">
+ 	<img src="__PUBLIC__/Home/img/logo1.png" class="disb macen"/>
+ </div>
+<div class="container-default">
+	<div class="margin-t-20 dis-n">
+		<div class="btn btn-default float-r">导出该项目所有API</div>
+		<p><span class="btn btn-danger margin-r-10">e路同城</span><a href="#">http://yltc.txunda.com/index.php/Api</a></p>
+	</div>
+	<div class="row padding-t-10 margin-b-20">
+		<div class="col-md-3 col-sm-4 col-xl-6 ih36">
+			<!--<div class="text-center margin-b-10 f-bold f-size-18">测试工具</div>-->
+			<!--<ul class="list-group mukuai">
+				<li class="list-group-item" formk="user">用户端登陆注册</li>
+				<li class="list-group-item" formk="good">用户端用户模块</li>
+				<li class="list-group-item" formk="mesg">用户端地址模块</li>
+			</ul>-->
+			<div class="row margin-b-10 border-none">
+				<div class="col-sm-4 col-xl-6">返回格式</div>
+				<div class="col-sm-8 col-xl-6 f-size-16">JSON</div>
+			</div>
+			<div class="row margin-b-10 border-none">
+				<div class="col-sm-4 col-xl-6">所属项目</div>
+				<div class="col-sm-8 col-xl-6">
+					<select class="selectpicker">
+						<option value="0">淘艺</option>
+						<option value="1">海猿网</option>
+						<option value="2">食品供应链</option>
+						<option value="3">房前屋后</option>
+					</select>
+				</div>
+			</div>
+			<div class="row margin-b-10 border-none">
+				<div class="col-sm-4 col-xl-6">当前模块</div>
+				<div class="col-sm-8 col-xl-6">
+					<select class="selectpicker">
+						<option value="0">用户管理</option>
+						<option value="1">商品管理</option>
+						<option value="2">客户关系管理</option>
+						<option value="3">ERP管理</option>
+					</select>
+				</div>
+			</div>
+			<div class="row margin-b-10 border-none">
+				<div class="col-sm-4 col-xl-6">当前方法</div>
+				<div class="col-sm-8 col-xl-6">
+					<select class="selectpicker methodselect">
+						<option value="0">用户登录</option>
+						<option value="1">用户注册</option>
+						<option value="2">修改密码</option>
+						<option value="3">设置自定义主题包</option>
+					</select>
+				</div>
+			</div>
+			<div class="testmethod margin-b-10">
+				<!--<div class="margin-b-10"><input type="text" placeholder="模块名称"></div>
+				<div><input type="text" placeholder="模块英文名称"></div>
+				<button class="btn btn-default addmk">提交测试</button>-->
+			</div>
+		</div>
+		<div class="col-md-9 col-sm-8 col-xl-6">
+			<!--<div class="f-size-18 padding-b-10" style="border-bottom:1px solid #ccc">使用说明<a href="#" class="color10">首次试用请务必认真阅读</a></div>-->
+			<div class="playinfo" style="min-height: 700px;">
+				<h5 class="color5">API请求参数：</h5>
+				<pre style="min-height: 150px;" class="reqargs"></pre>
+				<h5 class="color5">整理后的返回结果：</h5>
+				<pre style="min-height: 200px;" class="afresargs"></pre>
+				<h5 class="color5">源生返回结果：</h5>
+				<pre style="min-height: 150px;" class="resargs"></pre>
+			</div>	
+		</div>
+	</div>
+</div>
+<!-- Start Footer -->
+ <include file="Common:footer"/>
+<!-- End Footer -->
+
+
+</div>
+<!-- End Content -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="__PUBLIC__/Home/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<!-- ================================================
+Sweet Alert
+================================================ -->
+<script src="__PUBLIC__/Home/js/sweet-alert/sweet-alert.min.js"></script>
+
+<!-- ================================================
+Kode Alert
+================================================ -->
+<script src="__PUBLIC__/Home/js/kode-alert/main.js"></script>
+
+<!-- ================================================
+Bootstrap Select
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/bootstrap-select/bootstrap-select.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/plugins.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/self.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/layer/layer.js"></script>
+<script type="text/javascript">
+	$(function  () {
+		//控制添加模块输入框出现或隐藏
+		$(".addmk").on('click',function(){
+			$(".mkinput").slideToggle();
+		});
+		//获取表单数据，objson描述表单属性
+		$(".methodselect").on('change',function(){
+			var objson=[
+				{
+				"method":"radio",
+				"value":"GET"
+			},{
+				"m_id":"text",
+				"decrip":"用户ID",
+				"value":"123"
+			},{
+				"name":"text",
+				"decrip":"用户姓名",
+				"value":"张三"
+			},{
+				"age":"text",
+				"decrip":"年龄",
+				"value":"12"
+			}];
+			createform(objson);
+		});
+	});
+	var names=[];//用来存放表单需要提交的参数名集合
+	function createform(objson){
+		var html="";
+		for (var i=0;i<objson.length;i++) {
+			var curobj=objson[i];
+			for (var name in curobj) {
+				if(name=="method"){
+					html='<div class="row margin-b-10 border-none"><div class="col-sm-4 col-xl-6">请求方式</div><div class="col-sm-8 col-xl-6"><input type="radio" name="'+curobj[name]+'" class="form-controller" checked>'+curobj["value"]+'</div></div>'+html;
+					break;
+				}else if(curobj[name] == "text"){
+					names.push(name);
+					var decrip="";
+					if(curobj[decrip] != ""){
+						decrip='<span class="float-r color8" style="cursor:pointer" title="'+curobj["decrip"]+'">说明</span>';
+					}
+					html+='<div class="row margin-b-10 border-none"><div class="col-sm-4 col-xl-6">'+name+'</div><div class="col-sm-8 col-xl-6"><input type="'+curobj[name]+'" name="'+name+'" class="form-controller" value="'+curobj["value"]+'">'+decrip+'</div></div>';
+					break;
+				}
+			}
+		}
+		if(names.length != 0){
+			html+='<div class="btn btn-default" onclick="putest()">提交测试</div>';
+			$(".testmethod").html(html);	
+		}
+	}
+	function putest(){
+		var json={};
+		for (var index=0;index<names.length;index++) {
+			var key=names[index];
+			json[key]=$("input[name='"+names[index]+"']").val();
+		}
+		var jsonstr=JSON.stringify(json);
+		$(".reqargs").text(jsonstr);
+		$(".afresargs").text(jsonStringify(json,4));
+		$(".resargs").text(jsonstr);
+	}
+	function jsonStringify(data,space){
+    var seen=[];
+    return JSON.stringify(data,function(key,val){
+	        if(!val||typeof val !=='object'){
+	            return val;
+	        }
+	        if(seen.indexOf(val)!==-1){
+	            return '[Circular]';
+	        }
+	        seen.push(val);
+	        return val;
+	    },space);
+	}
+</script>
+</body>
+</html>

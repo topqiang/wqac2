@@ -1,0 +1,438 @@
+<link rel="stylesheet" type="text/css" href="__WEBPUBLIC__/Home/css/bss.css"/>
+<link rel="stylesheet" href="__WEBPUBLIC__/Home/css/amazeui.min.css"/>
+<script src="__WEBPUBLIC__/Home/js/jquery.min.js"></script>
+<style>
+	.count1{margin-top: 20px; border-bottom: 1px solid #ddd}
+	.tb{padding-top: 20px;}
+</style>
+<script src="__WEBPUBLIC__/Home/js/jquery.min.js"></script>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/kindeditor-min.js"></script>
+
+<if condition="empty($_GET['p_id'])">
+
+	<div class="project-c" style="width: 100%">
+
+		<!--项目列表开始-->
+		<table  class="am-table am-table-bordered am-table-radius am-table-striped" >
+			<tr>
+
+				<th>项目名称</th>
+				<th>待处理</th>
+				<th>待测试</th>
+				<th>未完成</th>
+				<th>已完成</th>
+				<th>总问题</th>
+			</tr>
+			<if condition="empty($project_list)">
+				<tr><td colspan="9" style="text-align: center">该终端下暂无问题</td></tr>
+			</if>
+
+			<volist name="project_list" id="vo">
+				<tr class="do_check_all">
+					<td>{$vo.p_name}</td>
+					<td><a href="{:U('Bss/main',array('p_id'=>$vo['p_id'],'b_res'=>1))}" target="main" style="color:red;">{$vo.dcl}</a></td>
+					<td><a href="{:U('Bss/main',array('p_id'=>$vo['p_id'],'b_res'=>2))}" target="main" style="color:orange;">{$vo.dcs}</a></td>
+					<td><a href="{:U('Bss/main',array('p_id'=>$vo['p_id'],'b_res'=>3))}" target="main" style="color:red;">{$vo.wwc}</a></td>
+					<td><a href="{:U('Bss/main',array('p_id'=>$vo['p_id'],'b_res'=>4))}" target="main" style="color:green;">{$vo.ywc}</a></td>
+					<td><a href="{:U('Bss/main',array('p_id'=>$vo['p_id'],'b_res'=>$voo['new_con_id']))}" target="main" >{$vo.zwt}</a></td>
+				</tr>
+			</volist>
+		</table>
+		<!--项目列表结束-->
+
+	</div>
+
+	<else/>
+
+	<div class="project-c" style="width: 100%">
+		<!--提交问题开始----->
+		<div style="margin-right:10px;margin-top:10px;float: right;">
+			<button type="button" class="am-btn am-btn-success am-radius" id="show_page">提交问题</button>
+		</div>
+		<div style="clear: both"></div>
+		<hr/>
+		<form class="am-form" id="add_problem"  style="display: none">
+			<fieldset>
+				{//$p_new_con_arr|dump}
+				<div class="am-form-group">
+					<volist name="p_new_con_arr" id="vo" k="key">
+						<label class="am-radio-inline">
+							<input type="radio"  class="b_tem_id" value="{$vo.tem_id}" name="b_tem_id">{$vo.tem_name}&nbsp;&nbsp;
+						</label>
+					</volist>
+				</div>
+
+				<div class="am-form-group">
+					<volist name="bug_type" id="vo">
+						<label class="am-radio-inline">
+							<input type="radio"  value="{$key}" name="b_type" class="b_type" >{$vo}&nbsp;&nbsp;
+						</label>
+					</volist>
+				</div>
+
+				<div class="am-form-group">
+					<label for="doc-ta-1"></label>
+					<textarea class="b_desc" name="b_desc" rows="2" id="doc-ta-1" placeholder="请描述您的问题"></textarea>
+				</div>
+
+
+				<div style="margin: 10px;float: right;">
+					<input type="hidden" name="p_id" class="p_id" value="{$p_id}">
+					<input type="hidden" name="cml_b_tem_id" class="cml_b_tem_id" value="{$b_tem_id}">
+					<button type="button" id="submit" class="am-btn am-btn-secondary am-radius submit" >提交</button>
+				</div>
+			</fieldset>
+		</form>
+		<!--提交问题结束-->
+
+
+		<!--搜索框和操作按钮开始-->
+		<div style="margin-bottom: 3px">
+			<form class="am-form search_form" action="{:U('Bss/main',array('p_id'=>$p_id,'b_tem_id'=>$b_tem_id))}" method="post">
+				<div class="am-g">
+					<div style="padding-left: 2px;float: left">
+						<if condition="$show_type==1">
+							<button type="button" class="am-btn am-btn-primary am-radius is_deal">已处理</button>
+							<else/>
+							<button type="button" class="am-btn am-btn-warning am-radius no_complex">未完成</button>
+							<button type="button" class="am-btn am-btn-danger am-radius is_finish">已完成</button>
+						</if>
+					</div>
+					<div style="float: right">
+						<input type="text" id="keywords" name="keywords" value="{$keywords}" placeholder="请要搜索的问题.." style="width: 400px;float: left"/>
+						<input type="hidden" id="form_b_type" name="form_b_type" value="{$b_type}"/>
+						<input type="hidden" id="form_status" name="form_status" value="{$status}"/>
+						<input type="submit" value="搜索" class="am-btn am-btn-secondary am-radius" style="float: left;margin-left: 2px;margin-right: 2px"/>
+						<span style="clear: both"></span>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+			</form>
+		</div>
+		<!--搜索框和操作按钮结束-->
+
+		<!--问题列表开始-->
+		<table  class="am-table am-table-bordered am-table-radius am-table-striped" >
+			<tr>
+				<th><input type="checkbox" class="ids check_all"></th>
+				<th width="55%">描述</th>
+				<th>
+					<select id="b_type">
+						<option value="0">类型</option>
+						<volist name="bug_type" id="voo" key="kkk">
+							<option value="{$kkk}" <if condition="$kkk==$b_type">selected</if>>{$voo}</option>
+						</volist>
+					</select>
+				</th>
+				<th>反馈人</th>
+				<th>反馈时间</th>
+				<th>反馈次数</th>
+				<th>
+					<select id="status">
+						<option value="0">全部</option>
+						<volist name="bug_res" id="voo" key="kkk">
+							<option value="{$kkk}" <if condition="$kkk==$status">selected</if>>{$voo}</option>
+						</volist>
+					</select>
+				</th>
+				<th>完成时间【负责人】</th>
+				<th>备注</th>
+			</tr>
+			<if condition="empty($bug_list)">
+				<tr><td colspan="9" style="text-align: center">该终端下暂无问题</td></tr>
+			</if>
+
+			<volist name="bug_list" id="vo">
+				<tr class="do_check_all">
+					<td><input type="checkbox" name="ids[]" class="ids" value="{$vo.b_id}"></td>
+					<td>
+
+						<switch name="vo.b_res">
+							<case value="1" style="color: red;">
+								<!--待处理-->
+								<span style="color: red;">{$vo.b_content}</span>
+							</case>
+							<case value="2">
+								<!--待测试-->
+								<span style="color: orange;">{$vo.b_content}</span>&nbsp;
+							</case>
+							<case value="3">
+								<!--未完成-->
+								<span class="deal_problem" style="color: red;cursor:pointer;" title="点击设置已完成">{$vo.b_content}</span>
+							</case>
+							<case value="4">
+								<span style="color: green;">{$vo.b_content}</span>&nbsp;
+
+							</case>
+							<default />未知状态
+						</switch>
+
+
+					</td>
+					<td>
+						<select class="change_row_b_type">
+							<volist name="bug_type" id="voo" key="kkk">
+								<option value="{$kkk}" <eq name="vo['b_type']" value="$kkk">selected</eq>>{$voo}</option>
+							</volist>
+						</select>
+					</td>
+					<td>{$vo.b_submit_name|default="未知"}</td>
+					<td>{$vo.b_submit_time|date="m-d",###}</td>
+					<td>{$vo.b_submit_num}</td>
+					<td>
+						<if condition="$show_type==1">
+							<!--程序员-->
+							<switch name="vo.b_res">
+								<case value="1" style="color: red;">
+									<!--待处理-->
+									<span class="deal_problem" style="color: red;cursor:pointer;" title="点击设置已完成">待处理</span>
+								</case>
+								<case value="2">
+									<!--待测试-->
+									<span style="color: orange;">待测试</span>&nbsp;
+								</case>
+								<case value="3">
+									<!--未完成-->
+									<span class="deal_problem" style="color: red;cursor:pointer;" title="点击设置已完成">未完成</span>
+								</case>
+								<case value="4">
+									<span style="color: green;">已完成</span>&nbsp;
+
+								</case>
+								<default />未知状态
+							</switch>
+							<else/>
+							<!--客户或者测试-->
+							<switch name="vo.b_res">
+								<case value="1" style="color: red;">
+									<span style="color: orange;">待处理</span>&nbsp;
+								</case>
+								<case value="2">
+									<!--待测试-->
+									<span class="no_finish" style="color: red; cursor:pointer;" title="点击设置已完成">未完成</span>&nbsp;
+									<span class="have_finish" style="color: green; cursor:pointer;" title="点击设置已完成">已完成</span>
+								</case>
+								<case value="3">
+									<span style="color: orange;">未完成</span>&nbsp;
+								</case>
+								<case value="4">
+									<span style="color:green;">已完成</span>&nbsp;
+
+								</case>
+								<default />未知状态
+							</switch>
+						</if>
+					</td>
+					<td>{$vo.b_ok_time_str}【{$vo.b_ok_name|default="未知"}】</td>
+					<td>{$vo.b_remark|default="无"}</td>
+				</tr>
+			</volist>
+		</table>
+		<!--问题列表结束-->
+	</div>
+</if>
+
+
+
+
+<script>
+	$(function(){
+		$("#show_page").click(function () {
+			$("#add_problem").toggle();
+		})
+
+		$('.submit').click(function(){
+			if($('.b_tem_id:checked').val() == ''){
+				alert('请选择问题所属终端');return false;
+			}
+			if($('.b_type:checked').val() == ''){
+				alert('请选择问题类型');return false;
+			}
+			if($('.b_desc').val() == ''){
+				alert('请填写问题描述');return false;
+			}
+
+			$.ajax({
+				url:'{:U("Bss/addBss")}',
+				type:'post',
+				data:{b_content:$('.b_desc').val(),b_type:$('.b_type:checked').val(),b_tem_id:$('.b_tem_id:checked').val(),p_id:$('.p_id').val()},
+				dataType:'JSON',
+				success:function(data){
+					alert(data.status);
+					window.location.reload();
+				}
+			});
+		});
+		//待处理=>待测试
+		$('.wait').click(function(){
+			if($('.b_tem_id:checked').val() == ''){
+				alert('请选择问题所属终端');return false;
+			}
+			if($('.b_type:checked').val() == ''){
+				alert('请选择问题类型');return false;
+			}
+			if($('.b_desc').val() == ''){
+				alert('请填写问题描述');return false;
+			}
+
+			$.ajax({
+				url:'{:U("Bss/addBss")}',
+				type:'post',
+				data:{b_content:$('.b_desc').val(),b_type:$('.b_type:checked').val(),b_tem_id:$('.b_tem_id:checked').val(),p_id:$('.p_id').val()},
+				dataType:'JSON',
+				success:function(data){
+					alert(data.status);
+					window.location.reload();
+				}
+			});
+		});
+
+
+
+	})
+	//author:cml solve bug status
+	$(function(){
+		//列表状态搜索-类型变化，采用伪造表单提交的方式实现
+		$("#b_type").change(function(){
+			var b_type   = $("#b_type").val();
+			$("#form_b_type").val(b_type);
+			$(".search_form").submit();
+		})
+
+		//列表状态搜索-bug状态,采用伪造表单提交方式实现
+		$("#status").change(function(){
+			var status   = $("#status").val();
+			$("#form_status").val(status);
+			$(".search_form").submit();
+		})
+
+
+		//全选操作
+		$(".check_all").click(function () {
+			$s =  $(".do_check_all").find("input[type=checkbox]");
+			if($(this).is(':checked')){
+				$s.each(function(i){
+					$(this).prop('checked',true);
+				});
+			}else {
+				$s.each(function(i){
+					$(this).prop('checked',false);
+				});
+			}
+		});
+
+		//批量操作
+
+		//已处理
+		$(".is_deal").click(function(){
+			findCheckBox(2);
+		});
+		//未完成
+		$(".no_complex").click(function(){
+			findCheckBox(3);
+		});
+		//已完成
+		$(".is_finish").click(function(){
+			findCheckBox(4);
+		});
+
+		function findCheckBox(status){
+			var id_arr = new Array();
+			$(".do_check_all").find('input[type="checkbox"]:checked').each(function(i){
+				id_arr[i] = $(this).val();
+			});
+			if(id_arr.length<=0){
+				alert('请选择修改的问题');
+				return false;
+			}
+			$.ajax({
+				url:'{:U("Bss/dealStatus")}',
+				type:'post',
+				data:{status:status,id_arr:id_arr},
+				dataType:'JSON',
+				success:function(msg){
+					if(msg['flag']=='success'){
+						window.location.reload();
+					}else {
+						alert('操作失败或是因为勾选的bug都不能变成相应的状态');
+					}
+				}
+			});
+
+		}
+
+		//单个操作改变bug状态
+
+		//问题已处理
+		$(".deal_problem").click(function(){
+			var b_id = $(this).parent().parent().find('input[type=checkbox]').val();
+			var parent = $(this).parent();
+			$.ajax({
+				url:'{:U("Bss/dealProblem")}',
+				type:'post',
+				data:{b_id:b_id},
+				dataType:'JSON',
+				success:function(msg){
+					if(msg['flag']=='success'){
+						parent.html('<span style="color: #0e90d2;">待测试</span>&nbsp;');
+					}else {
+						alert(msg['message']);
+					}
+				}
+			});
+		});
+		//问题未处理完成
+		$(".no_finish").click(function(){
+			var b_id = $(this).parent().parent().find('input[type=checkbox]').val();
+			var parent = $(this).parent();
+			$.ajax({
+				url:'{:U("Bss/noFinish")}',
+				type:'post',
+				data:{b_id:b_id},
+				dataType:'JSON',
+				success:function(msg){
+					if(msg['flag']=='success'){
+						parent.html('<span style="color: #0e90d2;">未完成</span>&nbsp;');
+					}else {
+						alert(msg['message']);
+					}
+				}
+			});
+		});
+		//问题已处理完成
+		$(".have_finish").click(function () {
+			var b_id = $(this).parent().parent().find('input[type=checkbox]').val();
+			var parent = $(this).parent();
+			$.ajax({
+				url:'{:U("Bss/haveFinish")}',
+				type:'post',
+				data:{b_id:b_id},
+				dataType:'JSON',
+				success:function(msg){
+					if(msg['flag']=='success'){
+						parent.html('<span style="color: #0e90d2;">已完成</span>&nbsp;');
+					}else {
+						alert(msg['message']);
+					}
+				}
+			});
+		});
+
+		$(".change_row_b_type").change(function(){
+			var b_id = $(this).parent().parent().find('input[type=checkbox]').val();
+			var b_type = $(this).val();
+			$.ajax({
+				url:'{:U("Bss/changeBType")}',
+				type:'post',
+				data:{b_id:b_id,b_type:b_type},
+				dataType:'JSON',
+				success:function(msg){
+					if(msg['flag']=='success'){
+					}else {
+						alert(msg['message']);
+					}
+				}
+			});
+		});
+	})
+</script>

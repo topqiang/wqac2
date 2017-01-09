@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <include file="Common:header"/>
+<include file="Common:left"/>
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content">
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTAINER -->
+<div class="calendar-layout clearfix">
+
+  <div class="col-md-2">
+
+    <div id='external-events'>
+      <h6 class="font-title"><i class="fa fa-arrows"></i> DRAGGABLE EVENTS</h6>
+      <p>Drag into calendar</p>
+      <div class='fc-event'>Meeting with Developer Team</div>
+      <div class='fc-event'>Office Party</div>
+      <div class='fc-event'>March Invoices</div>
+      <div class='fc-event'>Call John</div>
+      <div class='fc-event'>Dinner with Team</div>
+      <div class='fc-event'>Design an iOS App</div>
+      <div class='fc-event'>Make a Sandwich</div>
+      <div class='fc-event'>Meeting with Customers</div>
+
+
+    </div>
+
+  </div>
+
+  <div class="col-md-10">
+    <div id='calendar'></div>
+  </div>
+
+    
+
+
+
+
+</div>
+<!-- END CONTAINER -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- Start Footer -->
+ <include file="Common:footer"/>
+<!-- End Footer -->
+
+
+</div>
+<!-- End Content -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEPANEL -->
+<div role="tabpanel" class="sidepanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#today" aria-controls="today" role="tab" data-toggle="tab">TODAY</a></li>
+    <li role="presentation"><a href="#tasks" aria-controls="tasks" role="tab" data-toggle="tab">TASKS</a></li>
+    <li role="presentation"><a href="#chat" aria-controls="chat" role="tab" data-toggle="tab">CHAT</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    <!-- Start Today -->
+    <div role="tabpanel" class="tab-pane active" id="today">
+
+      <div class="sidepanel-m-title">
+        Today
+        <span class="left-icon"><a href="#"><i class="fa fa-refresh"></i></a></span>
+        <span class="right-icon"><a href="#"><i class="fa fa-file-o"></i></a></span>
+      </div>
+
+      <div class="gn-title">NEW</div>
+
+      <ul class="list-w-title">
+        <li>
+          <a href="#">
+            <span class="label label-danger">ORDER</span>
+            <span class="date">9 hours ago</span>
+            <h4>New Jacket 2.0</h4>
+            Etiam auctor porta augue sit amet facilisis. Sed libero nisi, scelerisque.
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="label label-success">COMMENT</span>
+            <span class="date">14 hours ago</span>
+            <h4>Bill Jackson</h4>
+            Etiam auctor porta augue sit amet facilisis. Sed libero nisi, scelerisque.
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="label label-info">MEETING</span>
+            <span class="date">at 2:30 PM</span>
+            <h4>Developer Team</h4>
+            Etiam auctor porta augue sit amet facilisis. Sed libero nisi, scelerisque.
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="label label-warning">EVENT</span>
+            <span class="date">3 days left</span>
+            <h4>Birthday Party</h4>
+            Etiam auctor porta augue sit amet facilisis. Sed libero nisi, scelerisque.
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- End Today -->
+
+    <!-- Start Tasks -->
+    <div role="tabpanel" class="tab-pane" id="tasks">
+
+      <div class="sidepanel-m-title">
+        To-do List
+        <span class="left-icon"><a href="#"><i class="fa fa-pencil"></i></a></span>
+        <span class="right-icon"><a href="#"><i class="fa fa-trash"></i></a></span>
+      </div>
+
+      <div class="gn-title">TODAY</div>
+
+      <ul class="todo-list">
+        <li class="checkbox checkbox-primary">
+          <input id="checkboxside1" type="checkbox"><label for="checkboxside1">Add new products</label>
+        </li>
+        
+        <li class="checkbox checkbox-primary">
+          <input id="checkboxside2" type="checkbox"><label for="checkboxside2"><b>May 12, 6:30 pm</b> Meeting with Team</label>
+        </li>
+        
+        <li class="checkbox checkbox-warning">
+          <input id="checkboxside3" type="checkbox"><label for="checkboxside3">Design Facebook page</label>
+        </li>
+        
+        <li class="checkbox checkbox-info">
+          <input id="checkboxside4" type="checkbox"><label for="checkboxside4">Send Invoice to customers</label>
+        </li>
+        
+        <li class="checkbox checkbox-danger">
+          <input id="checkboxside5" type="checkbox"><label for="checkboxside5">Meeting with developer team</label>
+        </li>
+      </ul>
+
+      <div class="gn-title">TOMORROW</div>
+      <ul class="todo-list">
+        <li class="checkbox checkbox-warning">
+          <input id="checkboxside6" type="checkbox"><label for="checkboxside6">Redesign our company blog</label>
+        </li>
+        
+        <li class="checkbox checkbox-success">
+          <input id="checkboxside7" type="checkbox"><label for="checkboxside7">Finish client work</label>
+        </li>
+        
+        <li class="checkbox checkbox-info">
+          <input id="checkboxside8" type="checkbox"><label for="checkboxside8">Call Johnny from Developer Team</label>
+        </li>
+
+      </ul>
+    </div>    
+    <!-- End Tasks -->
+
+    <!-- Start Chat -->
+    <div role="tabpanel" class="tab-pane" id="chat">
+
+      <div class="sidepanel-m-title">
+        Friend List
+        <span class="left-icon"><a href="#"><i class="fa fa-pencil"></i></a></span>
+        <span class="right-icon"><a href="#"><i class="fa fa-trash"></i></a></span>
+      </div>
+
+      <div class="gn-title">ONLINE MEMBERS (3)</div>
+      <ul class="group">
+        <li class="member"><a href="#"><img src="__PUBLIC__/Home/img/profileimg.png" alt="img"><b>Allice Mingham</b>Los Angeles</a><span class="status online"></span></li>
+        <li class="member"><a href="#"><img src="__PUBLIC__/Home/img/profileimg2.png" alt="img"><b>James Throwing</b>Las Vegas</a><span class="status busy"></span></li>
+        <li class="member"><a href="#"><img src="__PUBLIC__/Home/img/profileimg3.png" alt="img"><b>Fred Stonefield</b>New York</a><span class="status away"></span></li>
+        <li class="member"><a href="#"><img src="__PUBLIC__/Home/img/profileimg4.png" alt="img"><b>Chris M. Johnson</b>California</a><span class="status online"></span></li>
+      </ul>
+
+      <div class="gn-title">OFFLINE MEMBERS (8)</div>
+     <ul class="group">
+        <li class="member"><a href="#"><img src="__PUBLIC__/Home/img/profileimg5.png" alt="img"><b>Allice Mingham</b>Los Angeles</a><span class="status offline"></span></li>
+        <li class="member"><a href="#"><img src="__PUBLIC__/Home/img/profileimg6.png" alt="img"><b>James Throwing</b>Las Vegas</a><span class="status offline"></span></li>
+      </ul>
+
+      <form class="search">
+        <input type="text" class="form-control" placeholder="Search a Friend...">
+      </form>
+    </div>
+    <!-- End Chat -->
+
+  </div>
+
+</div>
+<!-- END SIDEPANEL -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="__PUBLIC__/Home/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/plugins.js"></script>
+
+<!-- ================================================
+jQuery UI
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- ================================================
+Moment.js
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/moment/moment.min.js"></script>
+
+<!-- ================================================
+Full Calendar
+================================================ -->
+<script type="text/javascript" src="__PUBLIC__/Home/js/full-calendar/fullcalendar.js"></script>
+
+
+<script>
+
+  $(document).ready(function() {
+    
+
+    /* initialize the external events
+    -----------------------------------------------------------------*/
+    $('#external-events .fc-event').each(function() {
+
+      // store data so the calendar knows to render an event upon drop
+      $(this).data('event', {
+        title: $.trim($(this).text()), // use the element's text as the event title
+        stick: true // maintain when user navigates (see docs on the renderEvent method)
+      });
+
+      // make the event draggable using jQuery UI
+      $(this).draggable({
+        zIndex: 999,
+        revert: true,      // will cause the event to go back to its
+        revertDuration: 0  //  original position after the drag
+      });
+
+    });
+
+
+    /* initialize the calendar
+    -----------------------------------------------------------------*/
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+      },
+      defaultDate: '2015-02-12',
+      editable: true,
+      droppable: true, // this allows things to be dropped onto the calendar
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2015-02-01',
+          color: '#9A80B9'
+        },
+        {
+          title: 'Long Event',
+          start: '2015-02-07',
+          end: '2015-02-10',
+          color: '#EF4836'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2015-02-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2015-02-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2015-02-3',
+          end: '2015-02-5',
+          color: '#E99844'
+        },
+        {
+          title: 'Meeting',
+          start: '2015-02-12T10:30:00',
+          end: '2015-02-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2015-02-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2015-02-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2015-02-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2015-02-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2015-02-13T07:00:00',
+          color: '#26A65B'
+        },
+        {
+          title: 'Buy This Theme',
+          url: 'http://themeforest.net/item/kode-responsive-admin-dashboard-template-/10814250?ref=egemem',
+          start: '2015-02-22',
+          color:'#D2527F'
+        }
+      ]
+    });
+    
+  });
+
+
+</script>
+
+
+
+</body>
+</html>

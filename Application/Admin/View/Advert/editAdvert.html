@@ -1,0 +1,84 @@
+<include file="Public:header"/>
+<!--主页面-->
+<div id="main-content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">系统设置</a></li>
+        <li class="active">广告设置</li>
+        <li class="active">编辑广告</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>广告设置</h3>
+        <ul class="nav nav-tabs">    
+            <li>
+                <a href="{:U('Advert/advertList')}">广告列表</a>
+            </li>
+            <li class="active">
+                <a href="{:U('Advert/addAdvert')}">编辑广告</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content-box-content">
+        <form action="{:U('Advert/editAdvert')}" method="post" class="form-horizontal" role="form">
+            <input type="hidden" name="ad_id" value="{$ad['ad_id']}">
+            <div class="form-group">
+                <label for="ad_desc" class="col-sm-3 control-label">广告描述：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ad_desc" name="ad_desc" value="{$ad['ad_desc']}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ad_url" class="col-sm-3 control-label">广告链接：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ad_url" name="ad_url" value="{$ad['ad_url']}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sort_order" class="col-sm-3 control-label">排　　序：</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="ad_url" name="sort_order" value="{$ad['sort_order']}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">广告位置：</label>
+                <div class="col-sm-9">
+                    <select name="ad_position" class="form-control input-sm">
+                        <option value="">--选择广告位置--</option>
+                        <volist name="ad_position" id="position">
+                            <option value="{$key}">{$position}</option>
+                        </volist>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所属板块：</label>
+                <div class="col-sm-9">
+                    <select name="ad_plate" class="form-control input-sm">
+                        <option value="">--选择所属版块--</option>
+                        <option value="1">版块一</option>
+                        <option value="2">版块二</option>
+                    </select>　
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">广告图片：</label>
+                <div class="col-sm-9">
+                    <input type="file" class="text-input" name="ad_pic">
+                    <if condition="!empty($ad['ad_pic'])">
+                    <div class="ad_pic">
+                        <img src="__WEBROOT__/Uploads/Advert/{$ad['ad_pic']}">
+                    </div>
+                    </if>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-default btn-primary">确认修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--主页面 end-->
+<include file="Public:footer"/>

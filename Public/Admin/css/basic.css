@@ -1,0 +1,368 @@
+HTML {
+	BORDER-RIGHT-WIDTH: 0px; OVERFLOW-Y: scroll; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H5 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+PRE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+FIELDSET {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TEXTAREA {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BLOCKQUOTE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	FONT: 12px/1.75 tahoma; HEIGHT: 100%; COLOR: #2b2b2b; font-size:12px;
+	line-height:1.2em;
+}
+TABLE {
+	FONT-SIZE: 12px
+}
+TD {
+	FONT-SIZE: 12px
+}
+TR {
+	FONT-SIZE: 12px
+}
+TH {
+	FONT-SIZE: 12px
+}
+LI {
+	LIST-STYLE-TYPE: none
+}
+TABLE {
+	MARGIN: 0px auto
+}
+IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; VERTICAL-ALIGN: top; BORDER-LEFT-WIDTH: 0px;
+	vertical-align:middle;
+}
+OL {
+	LIST-STYLE-TYPE: none
+}
+UL {
+	LIST-STYLE-TYPE: none
+}
+H1 {
+	FONT-SIZE: 12px; FONT-WEIGHT: 400
+}
+H2 {
+	FONT-SIZE: 12px; FONT-WEIGHT: 400
+}
+H3 {
+	FONT-SIZE: 12px; FONT-WEIGHT: 400
+}
+H4 {
+	FONT-SIZE: 12px; FONT-WEIGHT: 400
+}
+H5 {
+	FONT-SIZE: 12px; FONT-WEIGHT: 400
+}
+H6 {
+	FONT-SIZE: 12px; FONT-WEIGHT: 400
+}
+Q:before {
+	CONTENT: ''
+}
+Q:after {
+	CONTENT: ''
+}
+ABBR {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+ACRONYM {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+ADDRESS {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+CAPTION {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+CITE {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+CODE {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+DFN {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+EM {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+TH {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+VAR {
+	FONT-STYLE: normal; FONT-WEIGHT: 400
+}
+INPUT {
+	FONT-FAMILY: Arial,sans-serif,; FONT-SIZE: 12px
+}
+TEXTAREA {
+	FONT-FAMILY: Arial,sans-serif,; FONT-SIZE: 12px
+}
+SELECT {
+	FONT-FAMILY: Arial,sans-serif,; FONT-SIZE: 12px
+}
+OPTION {
+	FONT-FAMILY: Arial,sans-serif,; FONT-SIZE: 12px
+}
+A {
+	COLOR: #2b2b2b; TEXT-DECORATION: none; font-size:12px;
+}
+A.link-la {
+	COLOR: #1e50a2; font-size:12px;
+}
+A.link-la:hover {
+	COLOR: #1e50a2; font-size:12px;
+}
+.link-la A {
+	COLOR: #1e50a2; font-size:12px;
+}
+.link-la A:hover {
+	COLOR: #1e50a2; font-size:12px;
+}
+A.link-lb {
+	COLOR: #8ba4cd; font-size:12px;
+}
+A.link-lb:hover {
+	COLOR: #8ba4cd; font-size:12px;
+}
+.link-lb A {
+	COLOR: #8ba4cd; font-size:12px;
+}
+.link-lb A:hover {
+	COLOR: #8ba4cd; font-size:12px;
+}
+.cGray {
+	COLOR: #585858
+}
+.cGray:visited {
+	COLOR: #585858
+}
+.cGray A {
+	COLOR: #585858
+}
+.cGray A:visited {
+	COLOR: #585858
+}
+.cDGray {
+	COLOR: #999
+}
+.cDGray:visited {
+	COLOR: #999
+}
+.cDGray A {
+	COLOR: #999
+}
+.cDGray A:visited {
+	COLOR: #999
+}
+.cBlue {
+	COLOR: #1e50a2
+}
+.cBlue:visited {
+	COLOR: #1e50a2
+}
+.cBlue:hover {
+	COLOR: #1e50a2
+}
+.cBlue A {
+	COLOR: #1e50a2
+}
+.cBlue A:visited {
+	COLOR: #1e50a2
+}
+.cBlue A:hover {
+	COLOR: #1e50a2
+}
+.cDBlue {
+	COLOR: #8ba4cd
+}
+.cDBlue:visited {
+	COLOR: #8ba4cd
+}
+.cDBlue:hover {
+	COLOR: #8ba4cd
+}
+.cDBlue A {
+	COLOR: #8ba4cd
+}
+.cDBlue A:visited {
+	COLOR: #8ba4cd
+}
+.cDBlue A:hover {
+	COLOR: #8ba4cd
+}
+.cDRed {
+	COLOR: #ba2636
+}
+.cDRed:visited {
+	COLOR: #ba2636
+}
+.cDRed:hover {
+	COLOR: #ba2636
+}
+.cDRed A {
+	COLOR: #ba2636
+}
+.cDRed A:visited {
+	COLOR: #ba2636
+}
+.cDRed A:hover {
+	COLOR: #ba2636
+}
+.cGreen {
+	COLOR: #467902
+}
+.cGreen:visited {
+	COLOR: #467902
+}
+.cGreen A {
+	COLOR: #467902
+}
+.cGreen A:visited {
+	COLOR: #467902
+}
+.fB {
+	FONT-WEIGHT: 700
+}
+.fI {
+	FONT-STYLE: italic
+}
+.fl {
+	FLOAT: left
+}
+.fr {
+	FLOAT: right
+}
+.clear_l{
+	clear:left;
+}
+.fS12 {
+	FONT-SIZE: 12px !important
+}
+.fS14 {
+	FONT-SIZE: 14px !important
+}
+.tAr {
+	TEXT-ALIGN: right
+}
+.hidden {
+	DISPLAY: none !important
+}
+.clear {
+	DISPLAY: block; HEIGHT: 0px; CLEAR: both; OVERFLOW: hidden
+}
+.clearfix {
+	ZOOM: 1
+}
+.clearfix:after {
+	DISPLAY: block; HEIGHT: 0px; VISIBILITY: hidden; CLEAR: both; OVERFLOW: hidden; CONTENT: "."
+}
+CAPTION {
+	TEXT-ALIGN: left
+}
+TH {
+	TEXT-ALIGN: left
+}
+.tAl {
+	TEXT-ALIGN: left
+}
+.underline {
+	TEXT-DECORATION: underline !important
+}
+.underline:visited {
+	TEXT-DECORATION: underline !important
+}
+.underline A {
+	TEXT-DECORATION: underline !important
+}
+.underline A:visited {
+	TEXT-DECORATION: underline !important
+}
+.ununderline {
+	TEXT-DECORATION: none !important
+}
+.ununderline:visited {
+	TEXT-DECORATION: none !important
+}
+.ununderline A {
+	TEXT-DECORATION: none !important
+}
+.ununderline A:visited {
+	TEXT-DECORATION: none !important
+}
+.pos-rel {
+	POSITION: relative
+}
+.pos-abs {
+	POSITION: absolute
+}
+.va-m {
+	VERTICAL-ALIGN: middle
+}
+.mt10 {
+	MARGIN-TOP: 10px
+}
+.blank10 {
+	DISPLAY: block; HEIGHT: 10px !important; CLEAR: both; OVERFLOW: hidden
+}
+.fW {
+	FONT-WEIGHT: normal !important
+}

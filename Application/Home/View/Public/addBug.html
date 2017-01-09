@@ -1,0 +1,49 @@
+<include file="Common:header" />
+<link rel="stylesheet" type="text/css" href="__WEBPUBLIC__/Home/css/bss.css"/>
+<div class="add-bbs">
+<div class="am-g am-g-fixed add-bss clearfix">
+	<form method="post" action="{:U('Bss/addBug')}" name="addBug" class="addBug">
+		<input type="hidden" name="p_id" value="{$_GET['p_id']}">
+		<p class="selected">
+			<span class="title">选择平台：</span>
+			<span class="op" data-val="1"><b></b>网站</span>
+			<span class="op" data-val="2"><b></b>IOS平台</span>
+			<span class="op" data-val="3"><b></b>Android平台</span>
+			<input type="hidden" id="option" name="b_type" value="" />
+		</p>
+		<textarea name="b_content" id="bug-content" style="width:998px;height:480px;visibility:hidden;">{$bug_content}</textarea>
+		<p class="addbug-btn"><input type="submit" value="提交BUG" /></p>
+	</form>
+</div>
+</div>
+<script charset="utf-8" src="__WEBPUBLIC__/Common/kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        KindEditor.ready(function(K){
+            window.editor = K.create('#bug-content',{
+                items:[
+                    'source', '|', 'undo', 'redo', '|', 'cut', 'copy','|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'clearhtml', 'selectall', '|', 'formatblock', 'fontname', 'fontsize', '|', 'forecolor',
+                    'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough','image'
+                ],
+                afterBlur:function(){this.sync();}
+            });
+        });
+        $('.op').click(function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			$val = $(this).attr('data-val');
+			$('#option').val($val);
+		});
+        $('[name=addBug').submit(function(){
+        	if($('#option').val()==''){
+        		alert('请选择平台！！！');
+        		return false;
+        	}
+        	return true;
+        });
+        
+    });
+</script>
+<include file="Common:footer" />
+
+

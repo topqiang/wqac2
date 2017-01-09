@@ -1,0 +1,93 @@
+<include file="Public:header"/>
+<script type="text/javascript" src="__WEBPUBLIC__/Admin/js/ajax-operate.js"></script>
+<!--主页面-->
+<div id="main-content" class="content">
+    <ul class="breadcrumb">
+        <li><a href="/">首页</a></li>
+        <li class="active"><a href="">导航管理</a></li>
+        <li class="active">导航列表</li>
+    </ul>
+
+    <div class="page-header clearfix">
+        <h3>导航管理</h3>
+        <ul class="nav nav-tabs">    
+            <li class="active">
+                <a href="{:U('Project/navList')}">导航列表</a>
+            </li>
+            <li>
+                <a href="{:U('Nav/addNav')}">添加导航</a>
+            </li>
+        </ul>
+    </div>
+
+    <include file="Public:notification"/>
+
+    <div class="content-box-content">
+        <table class="table table-striped table-framed table-hover">
+
+            <thead>
+            <tr>
+                <th width="12%">添加时间</th>
+                <th>编号</th>
+                <th>导航名称</th>
+                <th>导航地址</th>
+                <th>排序</th>
+                <th>是否显示</th>
+                <th width="10%">操作</th>
+            </tr>
+            </thead>
+            <tbody class="tbody">
+            <if condition="empty($nav_list)">
+                <tr><td colspan="10"><span style="font-size:14px;">暂无数据</span></td></tr>
+            </if>
+            <volist name="nav_list" id="nav">
+                <tr>
+                    <td>{$nav['ctime']|date='Y-m-d',###}</td>
+                    <td>{$nav['nav_id']}</td>
+                    <td><a href="{$nav['link']}" class="underline" target="_blank">{$nav['nav_name']}</a></td>
+                    <td>{$nav['nav_link']}</td>
+                    <td>
+                        <input type="text" value="{$nav['sort_order']}" class="sort_order only-num" title="点击填写，再点击其他地方自动修改">
+                        <input type="hidden" value="{$nav['nav_id']}">
+                    </td>
+                    <td>
+                       <span class="icon glyphicon glyphicon-ok is-show-operate txt-grren" title="显示"<if condition="$nav['is_show'] eq 0">style="display:none;"</if>></span>
+                        <input type="hidden" value="{:U('Nav/isShowOperate')}||{$nav['nav_id']}||1">
+                        <span class="icon glyphicon glyphicon-remove is-show-operate txt-red" title="不显示" <if condition="$nav['is_show'] eq 1">style="display:none;"</if>></span>
+                        <input type="hidden" value="{:U('Nav/isShowOperate')}||{$nav['nav_id']}||0">
+                    </td>
+                    <td>
+                        <a href="{:U('Nav/editNav',array('nav_id'=>$nav['nav_id']))}" title="编辑" class="modify">
+                            <span class="icon glyphicon glyphicon-pencil"></span>
+                        </a>&nbsp;
+                        <a href="#" title="删除" class="delete-delete">
+                            <span class="icon glyphicon glyphicon-remove"></span>
+                        </a><input type="hidden" value="{:U('Nav/deleteNav',array('nav_id'=>$nav['nav_id']))}">
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+
+            <tfoot>
+            <tr>
+                <td colspan="20">
+                    <div class="fr">
+                        {$page}
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.sort_order').blur(function(){
+            var id = $(this).next('input').val();
+            var sort = $(this).val();
+            ajaxEditSort('{:U("Nav/editSort")}',id,sort);
+        });
+    });
+</script>
+<!--主页面 end-->
+<include file="Public:footer"/>
