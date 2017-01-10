@@ -7020,3 +7020,23 @@ INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
 SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.003635s ]
 SQL: UPDATE `txunda_directory` SET `md_content`='# nihao\n# bucuo\n# bucuo\n![](http://localhost/wqac2.0/Public/Home/img/profileimg.png)',`html_content`='<h1>nihao</h1>\n\n<h1>bucuo</h1>\n\n<h1>bucuo</h1>\n\n<p><img alt=\"\" src=\"http://localhost/wqac2.0/Public/Home/img/profileimg.png\"></p>' WHERE ( `id` = 1 ) [ RunTime:0.001302s ]
 
+[ 2017-01-09T20:30:50+08:00 ] ::1 /wqac2.0/index.php/Index/edit
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000437s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.002196s ]
+SQL: SELECT * FROM `txunda_directory` WHERE ( `parent_id` = 0 ) AND ( `status` <> '9' )  [ RunTime:0.000368s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006998s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007027s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000094s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000111s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000673s ]
+

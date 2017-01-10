@@ -464,9 +464,6 @@ Kode Alert
 			$(".viewpren").scrollTop( bili * scrolltop );
 		});
 
-		$(".btn-self").on('click',function(e){
-			console.log("nihao");
-		});
 
 		function liclick(e){
 			var self = $(this);
