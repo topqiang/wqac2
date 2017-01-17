@@ -1,0 +1,134 @@
+[ 2017-01-12T08:32:05+08:00 ] ::1 /wqac2.0/index.php/Index/edit
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001300s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.008861s ]
+SQL: SELECT * FROM `txunda_directory` WHERE ( `parent_id` = 0 ) AND ( `status` <> '9' )  [ RunTime:0.003255s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000141s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.019713s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019744s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000874s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000923s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001429s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001475s ]
+
+[ 2017-01-12T08:32:16+08:00 ] ::1 /wqac2.0/index.php/Index/proindex.html
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.002135s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000217s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000254s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.011279s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011306s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000094s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000110s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000490s ]
+
+[ 2017-01-12T08:32:23+08:00 ] ::1 /wqac2.0/index.php/Index/adduser.html
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.003622s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000219s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000254s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.011767s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011796s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000189s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000498s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000550s ]
+
+[ 2017-01-12T08:32:28+08:00 ] ::1 /wqac2.0/index.php/Index/adduser.html
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.002198s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000219s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000252s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007311s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007341s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000098s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000115s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000366s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000396s ]
+
+[ 2017-01-12T08:35:01+08:00 ] ::1 /wqac2.0/index.php/Index/addpro.html
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.003903s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000226s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000260s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.013096s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013126s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000093s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000110s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000401s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000431s ]
+
+[ 2017-01-12T08:35:52+08:00 ] ::1 /wqac2.0/index.php/Index/index
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.003312s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000260s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000310s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.013802s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013860s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000351s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000389s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000421s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000473s ]
+
+[ 2017-01-12T08:35:56+08:00 ] ::1 /wqac2.0/index.php/Index/proindex.html
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.003202s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000217s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000265s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008300s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000091s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000108s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000413s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000455s ]
+

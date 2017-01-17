@@ -1,0 +1,39 @@
+[ 2017-01-17T10:12:12+08:00 ] 192.168.0.104 /wqac2.0/index.php/Index/edit
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003445s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.011414s ]
+SQL: SELECT * FROM `txunda_directory` WHERE ( `parent_id` = 0 ) AND ( `status` <> '9' )  [ RunTime:0.003078s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000144s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000176s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.023202s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023234s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000749s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000793s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002014s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002080s ]
+
+[ 2017-01-17T10:12:41+08:00 ] 192.168.0.104 /wqac2.0/index.php/Index/icons.html
+NOTIC: [8] Use of undefined constant URL_CALLBACK - assumed 'URL_CALLBACK' /Applications/XAMPP/xamppfiles/htdocs/wqac2.0/Application/Common/Conf/socialize.php 第 16 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000525s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `txunda_directory` [ RunTime:0.003911s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000397s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000431s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.018323s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018358s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000095s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000111s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000393s ]
+

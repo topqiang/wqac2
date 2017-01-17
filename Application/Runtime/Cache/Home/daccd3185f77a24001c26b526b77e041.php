@@ -81,7 +81,7 @@
 <!--<div class="loadout">-->
 	<!--旋转loadding效果-->
 	<div class="loadin" >
-		<!--<div class="rotate">
+	<!--<div class="rotate">
 			<div class="arcbg"></div>
 		</div>-->
 		<div class="arctent">
